@@ -1,0 +1,27 @@
+
+
+
+阿思达克财经 财务数据
+
+
+http://www.aastocks.com/tc/stocks/analysis/company-fundamental/profit-loss?symbol=00700&period=0
+
+
+
+新浪港股 代码收集 （历史数据还可以，但是最新数据更新不及时！） 长线和短些结合起来吧！
+http://vip.stock.finance.sina.com.cn/mkt/#qbgg_hk
+
+
+marketwatch 美股财务数据！
+https://www.marketwatch.com/investing/stock/AABA/financials
+
+
+雅虎 美股财务数据
+https://finance.yahoo.com/quote/AAPL/financials?p=AAPL
+
+
+新浪美股  代码这里（）
+http://finance.sina.com.cn/stock/usstock/sector.shtml
+
+新浪美股 财务数据 （要用selenium）
+http://quotes.sina.com.cn/usstock/hq/income.php?s=snp&t=quarter
