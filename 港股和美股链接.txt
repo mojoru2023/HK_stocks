@@ -1,27 +1,29 @@
 
 
 
-°¢Ë¼´ï¿Ë²Æ¾­ ²ÆÎñÊı¾İ
 
-
+é˜¿æ€è¾¾å…‹è´¢ç»æ•°æ® æ¸¯è‚¡è´¢åŠ¡æ•°æ®
 http://www.aastocks.com/tc/stocks/analysis/company-fundamental/profit-loss?symbol=00700&period=0
 
 
 
-ĞÂÀË¸Û¹É ´úÂëÊÕ¼¯ £¨ÀúÊ·Êı¾İ»¹¿ÉÒÔ£¬µ«ÊÇ×îĞÂÊı¾İ¸üĞÂ²»¼°Ê±£¡£© ³¤ÏßºÍ¶ÌĞ©½áºÏÆğÀ´°É£¡
+æ–°æµªæ¸¯è‚¡ ä»£ç æ”¶é›† ï¼ˆå†å²æ•°æ®è¿˜å¯ä»¥ï¼Œä½†æ˜¯æœ€æ–°æ•°æ®æ›´æ–°ä¸åŠæ—¶ï¼ï¼‰ é•¿çº¿å’ŒçŸ­äº›ç»“åˆèµ·æ¥å§ï¼
 http://vip.stock.finance.sina.com.cn/mkt/#qbgg_hk
 
+æ–°æµªæ¸¯è‚¡ è´¢åŠ¡æ•°æ®
+http://stock.finance.sina.com.cn/hkstock/finance/00700.html#a4
 
-marketwatch ÃÀ¹É²ÆÎñÊı¾İ£¡
+
+marketwatch ç¾è‚¡è´¢åŠ¡æ•°æ®
 https://www.marketwatch.com/investing/stock/AABA/financials
 
 
-ÑÅ»¢ ÃÀ¹É²ÆÎñÊı¾İ
+é›…è™é‡‘è ç¾è‚¡è´¢åŠ¡æ•°æ®
 https://finance.yahoo.com/quote/AAPL/financials?p=AAPL
 
 
-ĞÂÀËÃÀ¹É  ´úÂëÕâÀï£¨£©
+æ–°æµªç¾è‚¡ ä»£ç 
 http://finance.sina.com.cn/stock/usstock/sector.shtml
 
-ĞÂÀËÃÀ¹É ²ÆÎñÊı¾İ £¨ÒªÓÃselenium£©
+æ–°æµªç¾è‚¡ è´¢åŠ¡æ•°æ® ï¼ˆè¦ç”¨seleniumï¼‰
 http://quotes.sina.com.cn/usstock/hq/income.php?s=snp&t=quarter

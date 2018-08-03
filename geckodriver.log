@@ -1,0 +1,117 @@
+1533264672883	geckodriver	INFO	geckodriver 0.18.0
+1533264672887	geckodriver	INFO	Listening on 127.0.0.1:60067
+1533264674124	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533264678658	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533264682676	Marionette	INFO	Listening on port 32849
+1533264682767	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 5448, Chrome_ChildThread] WARNING: pipe error (3): 连接被对方重设: file /build/firefox-WvkEP5/firefox-58.0/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 5395, Chrome_ChildThread] WARNING: pipe error (3): 连接被对方重设: file /build/firefox-WvkEP5/firefox-58.0/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1533265013126	geckodriver	INFO	geckodriver 0.18.0
+1533265013130	geckodriver	INFO	Listening on 127.0.0.1:54735
+1533265013317	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533265014644	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533265017504	Marionette	INFO	Listening on port 45859
+1533265017542	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+1533265470280	geckodriver	INFO	geckodriver 0.18.0
+1533265470285	geckodriver	INFO	Listening on 127.0.0.1:45231
+1533265471443	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533265472967	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533265476571	Marionette	INFO	Listening on port 43699
+1533265476612	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+1533265503120	geckodriver	INFO	geckodriver 0.18.0
+1533265503125	geckodriver	INFO	Listening on 127.0.0.1:45037
+1533265504286	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533265505490	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533265508633	Marionette	INFO	Listening on port 43087
+1533265508751	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+1533265634743	geckodriver	INFO	geckodriver 0.18.0
+1533265634748	geckodriver	INFO	Listening on 127.0.0.1:36229
+1533265635944	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533265638125	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533265642936	Marionette	INFO	Listening on port 37585
+1533265642986	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+[Child 6845, Chrome_ChildThread] WARNING: pipe error: 断开的管道: file /build/firefox-WvkEP5/firefox-58.0/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+[Child 6845, Chrome_ChildThread] WARNING: pipe error: 断开的管道: file /build/firefox-WvkEP5/firefox-58.0/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+1533265718550	geckodriver	INFO	geckodriver 0.18.0
+1533265718555	geckodriver	INFO	Listening on 127.0.0.1:59757
+1533265718932	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533265725039	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533265735789	Marionette	INFO	Listening on port 34347
+1533265737326	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+JavaScript error: https://sax.sina.com.cn/newimpress?rotate_count=27&TIMESTAMP=jkdeu2v9&referral=http%3A%2F%2Fvip.stock.finance.sina.com.cn%2Fmkt%2F%23qbgg_hk&adunitid=PDPS000000027981&am=%7Bds%3A1366x768%2Cfv%3A0%2Cov%3ALinux%20x86_64%7D&callback=_sinaads_cbs_o9y2ap, line 1: ReferenceError: _sinaads_cbs_o9y2ap is not defined
+1533278541622	geckodriver	INFO	geckodriver 0.18.0
+1533278541626	geckodriver	INFO	Listening on 127.0.0.1:43347
+1533278542863	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533278547620	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533278552823	Marionette	INFO	Listening on port 42237
+1533278552914	Marionette	WARN	TLS certificate errors will be ignored for this session
+1533284404705	geckodriver	INFO	geckodriver 0.18.0
+1533284404726	geckodriver	INFO	Listening on 127.0.0.1:53553
+1533284406024	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533284411525	Marionette	INFO	Enabled via --marionette
+1533284675044	geckodriver	INFO	geckodriver 0.18.0
+1533284675050	geckodriver	INFO	Listening on 127.0.0.1:58349
+1533284675223	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533284676584	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533284681670	Marionette	INFO	Listening on port 45627
+1533284681752	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+1533284718426	geckodriver	INFO	geckodriver 0.18.0
+1533284718432	geckodriver	INFO	Listening on 127.0.0.1:54079
+1533284719579	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533284720834	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533284723913	Marionette	INFO	Listening on port 37233
+1533284724004	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+1533284769536	geckodriver	INFO	geckodriver 0.18.0
+1533284769541	geckodriver	INFO	Listening on 127.0.0.1:56095
+1533284770687	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533284772066	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533284775205	Marionette	INFO	Listening on port 41135
+1533284775309	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+1533284830930	geckodriver	INFO	geckodriver 0.18.0
+1533284830938	geckodriver	INFO	Listening on 127.0.0.1:55229
+1533284832077	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533284833365	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533284836593	Marionette	INFO	Listening on port 39523
+1533284836705	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+1533284886211	geckodriver	INFO	geckodriver 0.18.0
+1533284886218	geckodriver	INFO	Listening on 127.0.0.1:43981
+1533284886403	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533284887816	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533284891004	Marionette	INFO	Listening on port 40853
+1533284891042	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 13240, Chrome_ChildThread] WARNING: pipe error (3): 连接被对方重设: file /build/firefox-WvkEP5/firefox-58.0/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1533285001698	geckodriver	INFO	geckodriver 0.18.0
+1533285001704	geckodriver	INFO	Listening on 127.0.0.1:40199
+1533285002846	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1533285003987	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1533285007424	Marionette	INFO	Listening on port 34759
+1533285007487	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://i.sso.sina.com.cn/js/cardtips.js, line 156: unreachable code after return statement
