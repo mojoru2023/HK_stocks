@@ -1,1308 +1,660 @@
-/home/karson/py3env/bin/python /home/karson/HK_stocks/all_data_spider.py
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+/home/gb/PYTHON36/bin/python /home/gb/HK_stocks/selenium_example.py
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>行情中心_新浪财经_新浪网</title>
+<meta name="keywords" content="行情中心,行情,排行榜,财经,新浪财经" />
+<meta name="description" content="新浪财经行情中心为您提供最全面最快速的沪深股市、香港股市、环球股指、外汇、期货、基金实时行情，还对沪深股市的板块行情进行了全面汇总，排行榜使您对全天的行情有直观的了解；其独有的网上交易系统，涵盖了72家证券公司的网上交易，你凭帐号和密码即可方便的登陆，进行网上交易；行情中心还为您提供了特色产品自选股，包括沪深自选、港股自选、基金自选和美股自选，方便您对自己的股票及基金进行快速查看和管理。" />
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<title>长和(00001)_财务指标_新浪港股免费实时行情_新浪财经</title>
-<meta name="Keywords" content="长和,00001,财务指标,香港股票,港股,实时行情,免费实时行情,港股行情,恒指,恒生指数" />
-<meta name="Description" content="新浪财经为您提供长和(00001)免费实时港股行情，获取有关长和(00001)的详细财经信息，包括实时股价、历史图表和财经资讯，这一切都是免费的！" />
-<script type="text/javascript" src="http://www.sinaimg.cn/jslib/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="http://stock.finance.sina.com.cn/hkstock/view/js/tools.js"></script>
-<script type="text/javascript" src="http://finance.sina.com.cn/flash/financeSWFCfg.js"></script>
-<script type="text/javascript" src="http://finance.sina.com.cn/stock/hkstock/json/jht.js"></script>
-<!-- longyi add for suigu -->
-<script src="http://i0.sinaimg.cn/dy/js/jquery/jquery-1.7.2.min.js"></script>
-<script src="http://stock.finance.sina.com.cn/hkstock/view/js/suigu.js?1104"></script>
-<style>@import url('http://stock.finance.sina.com.cn/hkstock/view/css/suigu.css');</style>
-</head>
-<body>
+
+<script type="text/javascript" src="http://i3.sinaimg.cn/cj/HKstock2007/IO.Script_1_0_1.js?1"></script>
+<script type="text/javascript" src="http://finance.sina.com.cn/globaltimezone.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="http://www.sinaimg.cn/cj/subject/2009/0618/css/hqct_1.12.css" type="text/css" media="all" />
+<link href="http://i0.sinaimg.cn/cj/news_keyword/stock.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="http://i.sso.sina.com.cn/js/ssologin.js"></script>
+<script>
+(function(){
+    window.ssoLoginObj = new SSOController();
+    window.loginSucCBs = [];
+    window.loginFailCBs = [];
+    window.logoutCBs = [];
+    var sc = window.ssoLoginObj; // 这里可以起一个短一些的别名，方便书写，当然，你也可以不使用一个短的名字
+    sc.init();
+    (function(){
+        this.name = "ssoLoginObj"; // 该名字一定要和帮在window上的对象名相同
+        this.entry = "sso"; //产品标识,使用时必须向通行证申请（或确认）
+        this.domain = "sina.com.cn"; //参考文档和附录1
+        this.setDomain = true; //参考文档说明确定是否设置
+        // this.feedBackUrl = "http://"+document.domain+"/mkt/ajaxlogin.php"; // 参考文档说明确定是否设置
+        this.customLoginCallBack = function(loginStatus) { // 登录回调代码
+        	if(loginStatus.result == true &amp;&amp; loginStatus.retcode == 0) {
+        		for(var i = 0; i &lt; window.loginSucCBs.length; i++) {
+        			window.loginSucCBs[i](loginStatus);
+        		}
+        	} else {
+        		for(var i = 0; i &lt; window.loginFailCBs.length; i++) {
+        			window.loginFailCBs[i](loginStatus);
+        		}
+        	}
+        };
+        this.customLogoutCallBack = function (result) { // 登出回调代码
+    		for(var i = 0; i &lt; window.loginFailCBs.length; i++) {
+    			window.logoutCBs[i](result);
+    		}
+        };
+
+    }).apply(sc);
+    // 下面可以调用sc.login(...) sc.logout(...) 等方法了
+})();
+</script>
+<script type="text/javascript" src="http://n.sinaimg.cn/finance/2371ce4c/20170706/hqzx20150831.js?2017070605"></script>
+<!--<script charset="utf-8" type="text/javascript" src="http://n.sinaimg.cn/finance/hqzxpclrr/hq_js20170626.js?20170706"></script>-->
+<script charset="utf-8" type="text/javascript" src="http://n.sinaimg.cn/finance/hqzxpclrr/hq_js20170725.js?2018020815"></script>
+
+<iframe src="http://beacon.sina.com.cn/ckctl.html" id="ckctlFrame" scrolling="no" style="height: 0px; width: 1px; overflow: hidden;"></iframe><link rel="stylesheet" href="//n.sinaimg.cn/finance/hqcenter_right_ad/hqcenter_finapp_ad.css?_=0419" charset="utf-8" /><style id="style_dmcode" type="text/css">.side-btns-2wm {width:210px;top: 210px;_top:expression(documentElement.scrollTop + 210);left: 50%;margin: 0 0 0 -710px;position: fixed;_position:absolute;z-index: 0;overflow: hidden; font: 12px/22px Arial;color:#333;}
+ .side-btns-2wm-img{color:#333; display:block;}
+ .side-btns-2wm img{border: 0;display: block; margin:0 auto;padding: 0;}
+ .side-btns-2wm-resize{display: none !important;}</style></head>
+
+<body><div class="side-btns-2wm side-btns-2wm-resize" style="display: block;"><a suda-uatrack="key=pc_hq_callup&amp;value=data_center" data-sudaclick="sf_cjapp_leftFloat_p" class="side-btns-2wm-img" href="https://finance.sina.com.cn/mobile/comfinanceweb.shtml?source=hangqing02" target="_blank"><img src="//n.sinaimg.cn/finance/66ceb6d9/20180821/dataCenterLeft.png" /></a></div>
+<script type="text/javascript" src="http://vip.stock.finance.sina.com.cn/mkt/js/stock_list_cn.js"></script><span id="gn_chart"></span>
+<div style="display:none;" id="scriptLoader"></div>
+<div id="SSOTipsContainer"></div>
+<link href="http://i.sso.sina.com.cn/css/cardtips.css" rel="stylesheet" type="text/css" media="all" />
+<script language="javascript" type="text/javascript" src="http://i.sso.sina.com.cn/js/cardtips.js"></script>
+
 <div class="wrap">
-  <!-- 财经导航 begin -->
-  <div class="secondaryHeader">
-    <div class="sHBorder">
-      <div class="sHLogo"><span><a href="http://finance.sina.com.cn/"><img alt="新浪网" src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_sina_new.gif"></a><a href="http://finance.sina.com.cn/"><img alt="新浪财经" src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_finance.gif"></a></span></div>
-      <div class="sHLinks"><a href="http://finance.sina.com.cn/">财经首页</a>&nbsp;|&nbsp;<a href="http://www.sina.com.cn/">新浪首页</a>&nbsp;|&nbsp;<a href="http://news.sina.com.cn/guide/">新浪导航</a></div>
-    </div>
-  </div>
-  <!-- 财经导航 end -->
-  <!-- 添加广告开始 -->
-  <div id="ad_05474" class="right">
-	<script async charset="utf-8" src="http://d0.sina.com.cn/litong/zhitou/sinaads/release/sinaads.js"></script><ins class="sinaads" data-ad-pdps="PDPS000000005474"></ins><script>(sinaads = window.sinaads || []).push({});</script>
-  </div>
-  <!-- 添加广告结束 -->
-  <!-- 导航 begin -->
-  <div class="nav"> <span class="fhp"><a href="http://finance.sina.com.cn/" target="_blank">财经首页</a></span><span>
-  <a href="http://finance.sina.com.cn/stock/hkstock/index.shtml" target="_blank" class="an4">港股首页</a>|
-  <a href="http://vip.stock.finance.sina.com.cn/hkstock/main.php" target="_blank" class="an4">港股自选</a>|
-  <a href="http://roll.finance.sina.com.cn/s/channel.php?ch=03#col=52" target="_blank" class="an4">港股滚动</a>|
-  <a href="http://finance.sina.com.cn/focus/hkwb/index.shtml" target="_blank" class="an3">微博圈</a>|
-  <a href="http://finance.sina.com.cn/stock/hkstock/hkstockask/index.html" target="_blank" class="an4">互动空间</a>|
-  <a href="http://club.finance.sina.com.cn/hkstock/index.php" target="_blank" class="an4">港股论坛</a>|
-  <a href="http://finance.sina.com.cn/stock/" target="_blank" class="an2">A股</a>|
-  <a href="http://finance.sina.com.cn/stock/usstock/index.shtml" target="_blank" class="an2">美股</a>|
-  <a href="http://roll.finance.sina.com.cn/finance/gg/ggggdp/index.shtml" target="_blank" class="an4">个股评级</a>|
-  <a href="http://roll.finance.sina.com.cn/finance/gg/ggipo/index.shtml" target="_blank" class="an2">新股</a>|
-  <a href="http://roll.finance.sina.com.cn/finance/gg/xgqzzx/index.shtml" target="_blank" class="an4">权证资讯</a>|
- <a href="http://money.finance.sina.com.cn/mkt/" target="_blank" class="an4">行情中心</a>|<a href="http://finance.sina.com.cn/money/globalindex/index.shtml" target="_blank" class="an4">环球股指</a></span></div>
-  <div class="HKsearch"><span class="forg" style="float:right"><a href="http://comment4.news.sina.com.cn/comment/skin/feedback.html?channel=ly&newsid=252" target="_blank">意见反馈</a></span>
-  <span style="margin-left:-5px;float:right;" class="suggest">
-  <form method="get" action="http://biz.finance.sina.com.cn/suggest/lookup_n.php" target="_blank" style="position:relative;margin: 0px;_padding-top:6px; padding: 0px;display:inline;">
-    <input type="text" autocomplete="off" id="hkSearchInput" name="q" value="代码/名称/简称" />
-    <input type="submit" value=""  class="hkSearchBtn" />
-	<input type="hidden" name="country" id="hkSearchButton" value="hk">
-    </form>
-    </span> <span id="indexHQ"><!-- <a href="http://stock.finance.sina.com.cn/hkstock/quotes/HSI.html" target="_blank">恒生指数</a> <span class="js-color">@rt_hkHSI@</span> <a href="http://stock.finance.sina.com.cn/hkstock/quotes/HSCEI.html" target="_blank">国企指数</a> <span class="js-color">@rt_hkHSCEI@</span> <a href="http://stock.finance.sina.com.cn/hkstock/quotes/HSCCI.html" target="_blank">红筹指数</a> <span class="js-color">@rt_hkHSCCI@</span>--></span>
+<!-- 标准二级导航_财经 begin -->
+<div>
+
+<div class="secondaryHeader">
+	<div class="sHBorder">
+		<div class="sHLogo"><span><a href="http://www.sina.com.cn/"><img src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_sina_new.gif" alt="新浪网" /></a><a href="http://finance.sina.com.cn/"><img src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_finance.gif" alt="新浪财经" /></a></span></div>
+		<div class="sHLinks"><a href="http://finance.sina.com.cn/">财经首页</a> | <a href="http://www.sina.com.cn/">新浪首页</a> | <a href="http://news.sina.com.cn/guide/">新浪导航</a></div>
+
+	</div>
 </div>
-<script type="text/javascript" src="http://finance.sina.com.cn/basejs/suggestServer.js"></script>
-<script type="text/javascript">
-    (new SuggestServer()).bind({
-        // 除"input"必须设置外 其他均为可选
-        "input": "hkSearchInput", //*(必选) 指定suggest绑定的对象 [string|HTMLElement.input]
-        //~  "loader": "suggest_loader", // 可指定js读取用的公共容器 [string|HTMLElement]
-        "default": "拼音/代码/名称", // 可指定input默认值 [string] 默认空
-        "type": "hk", // 类型 [string] 例如"stock"、"23"、"11,12"
-        "link": "http://biz.finance.sina.com.cn/suggest/lookup_n.php?country=@type@&amp;q=@code@", // 备选项点击的url 不设置则不可点击 [string]
-        "callback": null // 选定提示行时的回调方法，回调该方法时传入当前input内value [function|null]
-    });
-
-</script>
-<script type="text/javascript">
-
-	(function(c,k,n,d,h){if(!c){return;}
-	var cookie={set:function(k,v,h,d){var hour=h||24,now=new Date(),domain=d||documant.domain,exp=new Date(now.getTime()+hour*3600*1000);expires=exp.toGMTString();document.cookie=k+'='+escape(v)+';path=/;expires='+expires+';domain='+domain;},get:function(k){var coo=unescape(document.cookie),s=coo.indexOf(k+'='),kl=s+k.length+1,e=coo.indexOf(';',kl);if(s==-1){return'';}
-	if(e==-1){return coo.substr(kl);}
-	return coo.slice(kl,e);},remove:function(k){var now=new Date(),exp=new Date(now.getTime()-3600*1000);expires=exp.toGMTString();document.cookie=k+'='+';expires='+expires+'';}};var coo,i,l;k=k||'FIN_ALL_VISITED';n=n||60;d=d||'finance.sina.com.cn';h=h||24*30;coo=cookie.get(k);if(!coo){cookie.set(k,c,h,d);return;}
-	coo=coo.split(',');for(i=0,l=coo.length;i<l;i++){if(coo[i]===c){coo.splice(i,1);break;}}
-	coo.unshift(c);coo=coo.slice(0,n);cookie.set(k,coo.join(','),h,d);})('00001');
-</script>
-  <!-- 导航 end -->
-<script type="text/javascript">
-//<![CDATA[
-    var symbol;
-    (location.search || '').replace(/code=(\w*)/,function ($1,$2)
-    {
-        symbol = $2.toUpperCase();
-        if(/\d*/.test(symbol))
-        {
-            while(symbol.length < 5)
-            {
-                symbol = '0' + symbol;
-            }
-        }
-    });
-//]]>
-</script>
-<script type="text/javascript" src="http://www.sinaimg.cn/jslib/jquery-1.4.2.min.js"></script>
-<script type="text/javascript">
-var symbol = '00001';</script>
-<script type="text/javascript" src="/hkstock/view/js/tools.js"></script>
-<script type="text/javascript" src="/hkstock/view/js/datatable.js"></script>
-<script type="text/javascript" src="/hkstock/view/js/main_sim.js"></script>
-
-<style>
-/* CSS Document */
-/* ================== css reset ================== */
-html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
-fieldset, img { border:none; }
-address, caption, cite, code, dfn, th, var,i ,em{ font-style:normal; font-weight:normal; }
-ul, ol, li { list-style:none; }
-select, input { vertical-align:middle; }
-select, input, textarea { font-size:12px; margin:0; }
-table { border-collapse:collapse; }
-body { color:#333; padding:0; font:12px/20px "宋体"; }/*20110628 modify*/
-.clearfix:after { content:"."; display:block; height:0; visibility:hidden; clear:both; }
-.clearfix { zoom:1; }
-.clearit { clear:both; height:10px; font-size:0; overflow:hidden;zoom:1; background:#fff; }
-a { color:#262626; text-decoration:none; }
-a:visited { color:#800080; }
-a:hover, a:active, a:focus { color:#f00; text-decoration:underline; }
-.wrap { width:950px; margin:0 auto; /*background:url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_ban.png) 0 0 no-repeat; */padding-top:5px; cursor:default}
-
-html{/*background:#fff url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_bg01.png) 0 0 repeat-x;*/ }/*20110628 added*/
-body{/* background:url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_banBg.png)  50% 1px no-repeat;*/}/*20110628 added*/
-.real_tip{line-height:25px;padding-right:10px;text-align:right;color:#8b8b8b;}
-
-/*others added by yan*/
- h1, h2, h3, h4, h5, h6{ font-weight:normal; }
-.fred, .fred a{color:#C72100; }
-.fgrey, .fgrey a:link,.fgrey a:visited{color:#898989;}
-.fgrey a:hover{color:#f00; text-decoration:none;}
-.forg,.forg a{ color:#fe7200;}
-
-.fblue, .fblue a,.fblue a:visited{color:#005991;}
-
-.fred a:hover,.fblue a:hover,.forg a:hover{ color:#f00;}
-.fred a:visited,.forg a:visited{ color:#800080;}
-.fmid{ text-align:center; padding:0;}
-.fgreen{ color:#199900;}
-.frt{ text-align:right; padding-right:10px;}
-table .bgGrey td{ background:#f2f2f2 }
-#hkSearchInput,.hkSearchBtn,.stockOpration a,.stockDetail,.reflash a,.upImg, .downImg ,.sub01_tt,.sub04_tt,.wb,#compare button,.sub02_tt,.ArrUp,.ArrDown,.Range{ background:url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_icons.png) 999px 999px no-repeat;}
-/* 导航 */
-
-.secondaryHeader{height:33px;overflow:hidden;background:url(http://i2.sinaimg.cn/dy/images/header/2008/standardl2nav_bg.gif) repeat-x #fff;color:#000;font-size:12px;font-weight:100;}
-.secondaryHeader a,.secondaryHeader a:visited{color:#000;text-decoration:none;}
-.secondaryHeader a:hover,.secondaryHeader a:active{color:#c00;text-decoration:underline;}
-.sHBorder{border:1px #e3e3e3 solid;padding:0 10px 0 12px;overflow:hidden;zoom:1;}
-.sHLogo{float:left;height:31px;line-height:31px;overflow:hidden;}
-.sHLogo span,.sHLogo span a,.sHLogo span a:link,.sHLogo span a:visited,.sHLogo span a:hover{display:block;*float:left;display:table-cell;vertical-align:middle;*display:block;*font-size:27px;*font-family:Arial;height:31px;}
-.sHLogo span,.sHLogo span a img,.sHLogo span a:link img,.sHLogo span a:visited img,.sHLogo span a:hover img{vertical-align:middle;}
-.sHLinks{float:right;line-height:31px;}
-.sHBorder img{border:none}
-
-
-/*二级导航导 Start*/
-.nav{ /*padding-top:60px;*/ height:35px;color:#3d6f99; line-height:35px;background:white url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_bg01.png) 0 -98px repeat-x;}
-.nav span{ margin-left:5px;}
-.nav a:link,.nav a:visited{ color:#eafefd;}
-.nav a:hover{ color:#fffe9c; text-decoration:none;}
-.nav .fhp a{ background:url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_icons.png) 10px 0  no-repeat; height:34px; width:100px;text-indent:-999em; display:block; float:left;}
-.nav a.selected{ background:url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_icons.png) 0 -40px no-repeat; display:inline-block; height:34px; padding:0 10px; color:#fffe9c;}
-.HKsearch{ height:30px; line-height:30px; padding-left:50px; color:#4a4a4a;background-color:#EFEFEF;}
-.HKsearch span{ margin:0 8px;}
-.HKsearch #hkSearchInput {background-color:#fff; background-position:-78px -158px;border: 1px solid #A5ACB2;color: #666666; height: 17px; line-height: 17px; padding-left: 20px;width: 110px;}
-.HKsearch .hkSearchBtn{ background-position: 0 -160px; width:44px; height:22px; border:none;}
-/*二级导航导End*/
-
-
-/* ============== 横切定义 ============== */
-/* part01 common start*/
-.stockName{ height:30px; line-height:30px; padding-top:7px; overflow:hidden;zoom:1;}
-.stockHead{ color:#01335d; font-size:18px; font-family:"微软雅黑", "黑体";  padding-left:10px; float:left; width:470px;}
-.stockHead em{ font-style:normal; font-size:14px; font-family:Arial;}
-.stockOpration{  float:right;/* width:230px;*/}
-.stockOpration a{ color:#4a4a4a; display:block; width:80px; padding-left:10px;border:1px solid #cfcfcf; height:20px;line-height:20px;float:right; text-align:center; margin: 0 3px;}
-.stockOpration a:hover{ background-color:#e1ecef; text-decoration:none;}
-.stockOpration a.Msee{ background-position:-85px -57px; width:90px;}
-.stockOpration a.Madd{ background-position:-85px -35px;}
-.stockDetail{ height:31px; line-height:27px; background-position:0 -80px; background-repeat:repeat-x; font-size:14px; padding-left:10px;}
-.stockDetail a{ display:inline-block; width:78px; padding:0 3px;text-align:center;}
-.stockDetail a:link,.stockDetail a:visited{ color:#4a4a4a;}
-.stockDetail a:hover{color:#f00;}
-.stockDetail a.selected{ background:#fff; border-top:3px solid #447ead;  height:28px; }
-/* part01 common end*/
-
-
-.p_l{ width:690px; float:left}
-.p_r{ width:250px; float:right; }
-.p_btm{ background:url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_bg02.png) 0 -2px no-repeat; height:2px; overflow:hidden;zoom:1;}
-.part02 ,.part03{ overflow:hidden;zoom:1; margin-top:10px; border-style:solid; border-color:#e8e8e8; border-width:0px 1px 1px;}
-
-
-
-
-
-/* ================== block define ================== */
-/*标签切换*/
-.sub01{ padding:0 1px;}
-.sub01 .sub01_tt{ background-position:0 -280px; background-repeat:repeat-x; height:30px; line-height:27px; padding-left:10px; }
-.sub01 .sub01_tt span{ display:inline-block; padding:0 10px; cursor:pointer; color:#005991}
-.sub01 .sub01_tt .selected{  border-color:#c7c7c7; border-width:3px 1px 0; border-style:solid; background-color:#fff;}
-.sub01 .sub01_cc{ padding:5px 0;}
-.sub01 .sub01_tt .rt{ display:block; margin-top:-25px; font-size:12px; text-align:right; height:20px; line-height:20px; padding-right:10px; }
-
-
-/* 板块单独定义 */
-.blk01{ padding:0 1px; border-bottom:1px solid #e8e8e8;}
-.blk01 h2{ font-size:14px;  padding-left:10px; background:#f8f8f8; border-top:1px solid #e8e8e8; height:28px; line-height:28px;}
-.blk01 h2 em{ font-style:normal; font-size:12px; color:#000;}
-.blk01 .StockNum{ width:110px; text-align:center; padding:10px 0; margin:5px 0; border-right:1px solid #e8e8e8; float:left; font-size:14px; font-family:Arial;}
-.blk01 .StockNum .NTop{ font-size:24px;}
-.blk01 .StockEnd{padding:5px 10px 5px 0 ; float:right; width:100px; }
-.blk02{ width:330px; float:left; padding:6px 3px 0 10px;}
-.blk02 .titl span{ display:inline-block; padding:5px 0 0 100px;}
-.blk02 .titl .fgrey{ padding-left:150px;}
-
-.tit01{ text-align:right; padding:0 10px; background:#dde7f1; font-size:12px; height:30px; line-height:30px;}
-.tit01 span{ display:block; float:left; width:180px; font-size:16px; text-align:left; font-family: "黑体"}
-.tit01 span em{ font-size:12px; font-style:normal; font-family:Arial;}
-.tit02{text-align:right; padding-right: 10px; font-size:12px; height:25px; line-height:24px; border-bottom:1px solid #d9dde6; overflow:hidden;zoom:1; }
-.tit02 span{ display:block; padding-left:10px; float:left; width:100px; font-size:14px; text-align:left; border-bottom:1px solid #d9dde6;height:24px; }
-
-
-.list01{ padding:8px 5px 2px;}
-.list01 li{ background:url(http://stock.finance.sina.com.cn/hkstock/view/images/gg_110505_icons.png) -93px -178px no-repeat; padding-left:10px; zoom:1; line-height:20px; height:20px;}
-.list01.dot_000 li{ background-position:-80px -495px;}
-.list01 .rt{ margin-top:-20px; text-align:right; zoom:1; display:block; color:#484848}
-
-.tab01 th{ text-align:left; padding:0 5px; height:25px; line-height:25px;}
-.tab01 td{border-bottom:1px dashed #c3c3c1; height:25px; line-height:25px;}
-.tab01 .nbor td{ border-bottom:none;}
-.tab02{ margin-top:10px;}
-.tab02 td{ padding-left:15px; height:22px; line-height:22px;}
-.tab03 th{ text-align:left; padding-left:11px; height:30px;}
-.tab03 td{ padding-left:8px; height:22px; line-height:22px;}
-.tab03 .ArrUp{ background-position:-80px -435px; padding-left:12px; display:block; color:#FF0000 }
-.tab03 .ArrDown{ background-position:-80px -455px; padding-left:12px; display:block; color:#008000 }
-.tab03 .Range{ background-position: 0 -440px; width:70px; height: 9px; display:block;zoom:1; overflow:hidden;}
-.tab03 .r1{background-position: 0 -440px;}
-.tab03 .r2{background-position: 0 -449px;}
-.tab03 .r3{background-position: 0 -458px;}
-.tab03 .r4{background-position: 0 -467px;}
-.tab03 .r5{background-position: 0 -476px;}
-.tab03 .Active{ display: block;font-family:Arial; background:#ffc06e; height:15px; line-height:15px; font-size:10px; text-indent:5px;}
-.tab04 th{ text-align:left; padding-left:11px; height:23px;}
-.tab04 td{ padding-left:8px; height:20px; line-height:20px;}
-.tab05{ margin:5px 3px;}
-.tab05 th,.tab05 td{ border:1px solid #e8e8e8; text-align:center; height:22px; line-height:22px;}
-.tab05 td{text-align:right;padding-right:10px;}
-
-.tab06 th,.tab06 td{ height:22px; line-height:22px; text-align:center;}
-.tab06 { margin-top:10px;}
-
-/*分页*/
-.page{ font-family: "宋体", sans-serif; text-align:center;font-size:12px;line-height:18px; color:#999; padding-bottom:10px;}
-.page span,.page a{ display:inline-block; padding:0px 5px; background:#f6f7f8;margin:0 0px}
-.page a{border:1px #d4e5ef solid; color:#838383; text-decoration:none;}
-.page span{border:1px #ddd solid;color:#999;}
-.page span.cur{ font-weight:bold; color:#005991; border:none; background:none;}
-.page a:hover,.page a:active{ border:1px #2e6ab1 solid;color:#363636; text-decoration:none}
-/*back to Top*/
-.b2t{ height:30px;/* margin-top:-30px;*/ text-align:left; padding-right:20px;padding-left:20px;}
-.b2t a{float:right;padding-right:10px;}
-.b2t a:link,.b2t a:visited{ color:#f17d01;}
-.b2t a:hover{ color:#f00;}
-/*footer*/
-.footer{color:#000000;line-height:22px;margin:2em 0;text-align:center; font-family:Arial, Helvetica, sans-serif, "黑体"}
-.footer a{ text-decoration:underline;}
-/* ================= commen define ================ */
-
-.sub01_c table tbody td{width:83px;}
-.upColor {color:#008000; }
-.downColor {color:#f00;}
-.an1,.an2,.an3,.an4,.an5,.an6{padding:12px 10px;margin:0 -4px;}
-.an1:hover{background:url(http://stock.finance.sina.com.cn/hkstock/view/images/nav_back.gif) 0 0 no-repeat;}
-.an2:hover{background:url(http://stock.finance.sina.com.cn/hkstock/view/images/nav_back.gif) -36px 0 no-repeat;}
-.an3:hover{background:url(http://stock.finance.sina.com.cn/hkstock/view/images/nav_back.gif) -84px 0 no-repeat;}
-.an4:hover{background:url(http://stock.finance.sina.com.cn/hkstock/view/images/nav_back.gif) -148px 0 no-repeat;}
-.an5:hover{background:url(http://stock.finance.sina.com.cn/hkstock/view/images/nav_back.gif) -219px 0 no-repeat;}
-.an6:hover{background:url(http://stock.finance.sina.com.cn/hkstock/view/images/nav_back.gif) -303px 0 no-repeat;}
-
-.stockHead h1{display:inline;font-size:22px;}
-</style>
- <!--part01 start 公用部分-->
-  <div class="part01">
-    <div class="stockName">
-      <div class="stockHead"> <a href="http://stock.finance.sina.com.cn/hkstock/quotes/00001.html" style="color:#01335D;text-decoration:none;font-size:22px;"><h1>长和</h1>&nbsp;<em>00001.HK(CKH HOLDINGS)</em></a> </div>
-      <div class="stockOpration"> <a href="http://news.sina.com.cn/437/2008/0703/27.html" target="_blank" class="Msee">手机查看股票</a> <a href="http://vip.stock.finance.sina.com.cn/hkstock/qjia.php?symbol=hk00001&ru=http://stock.finance.sina.com.cn/hkstock/quotes/00001.html" target="_blank" class="Madd">加入自选股</a>
 </div>
+
+<!-- 标准二级导航_财经 end -->
+<dl class="top_nav">
+	<dt class="black"><a href="http://finance.sina.com.cn/">财经首页</a></dt>
+	<dd>
+		<a href="http://finance.sina.com.cn/stock/">股票</a>
+		<a href="http://finance.sina.com.cn/fund/">基金</a><a href="http://finance.sina.com.cn/stock/hkstock/">港股</a><a href="http://finance.sina.com.cn/stock/usstock/">美股</a><a href="http://finance.sina.com.cn/futuremarket/">期货</a><a href="http://finance.sina.com.cn/forex/">外汇</a><a href="http://finance.sina.com.cn/nmetal/">贵金属</a><a href="http://finance.sina.com.cn/bond/">债券</a><a href="http://finance.sina.com.cn/stock/indexfuture">期指</a><a href="http://finance.sina.com.cn/money/">理财</a><a href="http://vip.stock.finance.sina.com.cn/portfolio/main.php">我的自选</a><a href="http://finance.sina.com.cn/stock/usstock/sector.shtml"><span style="color:#ffff00">美股实时行情</span></a>
+
+	</dd>
+</dl>
+
+<div id="FinPromSinaadsTopBanner" style="overflow: hidden; width: 980px; height: 90px; margin: 0px auto; font-size: 12px;">
+    <div style="float:left;width:30px;height:90px;background:#ddd;text-align:center;font-size:14px;line-height: 16px;padding-top: 10px;">新<br />浪<br />广<br />告</div>
+    <div style="float:left;width:950px;height:90px;">
+        <script async="" charset="utf-8" src="http://d0.sina.com.cn/litong/zhitou/sinaads/release/sinaads.js"></script>
+        <ins class="sinaads sinaads-done" data-ad-pdps="PDPS000000027981" data-ad-status="done" style="display: block; overflow: hidden; text-decoration: none;"><ins style="text-decoration:none;margin:0px auto;width:950px;display:block;position:relative;overflow:hidden;"><iframe width="950px" height="90px" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="//img.adbox.sina.com.cn/ad/23194.html" name="viewTAG=%2F%2Fsax.sina.com.cn%2Fview%3Ftype%3Dbottom%26t%3DUERQUzAwMDAwMDAyNzk4MQk5YzBiNjhkYTQzNjgzMzVlZDJiM2ZhNzZiNzBiZWE0ZQ%253D%253D%26am%3D%257Bds%253A1440x900%252Cfv%253A0%252Cov%253ALinux%2520x86_64%257D"></iframe></ins></ins>
+        <script>
+            (sinaads = window.sinaads || []).push({
+                params: {
+                    sinaads_success_handler: function () {
+                        try {
+                            document.getElementById('FinPromSinaadsTopBanner').style.display = '';
+                        } catch (e) {}
+                    }
+                }
+            });
+        </script>
     </div>
-       <div class="stockDetail"> <a href="http://stock.finance.sina.com.cn/hkstock/quotes/00001.html " >行情走势</a> <a href="http://stock.finance.sina.com.cn/hkstock/info/00001.html" >公司资料</a> <a href="http://stock.finance.sina.com.cn/hkstock/news/00001.html ">新闻资讯</a> <a href="http://stock.finance.sina.com.cn/hkstock/notice/00001.html">公司公告</a> <a href="http://stock.finance.sina.com.cn/hkstock/finance/00001.html" class="selected">财务指标</a> <a href="http://stock.finance.sina.com.cn/hkstock/dividends/00001.html ">分红派息</a> <a href="http://stock.finance.sina.com.cn/hkstock/warrants/00001.html ">窝轮/牛熊证</a> <a href="http://stock.finance.sina.com.cn/hkstock/rights/00001.html ">权益变动</a>  <a href="http://stock.finance.sina.com.cn/hkstock/history/00001.html">历史交易</a></div>
-  </div>
-  <!--part01 end-->
-  <!--重要财务指标 start-->
- 	<a name="a1" id="a1"></a>
-  	<div class="part02">
-   	  <div class="sub01">
-       	  <div class="sub01_tt fblue">
-           	  <span class=" selected"><a href="#a1" target="_self">重要财务指标</a></span>
-              <span class=""><a href="#a2" target="_self">资产负债表</a></span>
-              <span class=""><a href="#a3" target="_self">现金流量表</a></span>
-              <span class=""><a href="#a4" target="_self">综合损益表</a></span>
-              <em class="rt">报表类型:<select class="fgrey" style="width:100px;" interface="getFinanceStandardForjs?symbol=$symbol&financeStanderd=" table="tableGetFinanceStandard" onchange="selectData(this);">
-                <option value="all" >全部</option>
-                <option value="zero" >年报</option>
-                <option value="1" >中报</option>
-                <option value="2" >一季报</option>
-                <option value="3" >三季报</option>
-            </select></em>
-        </div>
-        <div class="sub01_cc">
-            	<div class="sub01_c">
-            	                	<table cellspacing="0" cellpadding="0" border="0"  class="tab05">
-                    <tbody id="tableGetFinanceStandard">
-                     <tr>
-                        <th style="width:180px;">开始日期</th>
-                                                	<td>2017-01-01</td>
-                                                	<td>2017-01-01</td>
-                                                	<td>2016-01-01</td>
-                                                	<td>2015-01-01</td>
-                                                	<td>2016-01-01</td>
-                                                	<td>2015-01-01</td>
-                                                	<td>2014-01-01</td>
-                                                	<td>2014-01-01</td>
-                                             </tr>
-                      <tr>
-                        <th>截止日期</th>
-                                                	<td>2017-12-31</td>
-                                                	<td>2017-06-30</td>
-                                                	<td>2016-12-31</td>
-                                                	<td>2015-12-31</td>
-                                                	<td>2016-06-30</td>
-                                                	<td>2015-06-30</td>
-                                                	<td>2014-12-31</td>
-                                                	<td>2014-06-30</td>
-                                              </tr>
-                      <tr>
-                        <th>公告日期</th>
-                                                	<td>2018-03-16</td>
-                                                	<td>2017-08-03</td>
-                                                	<td>2017-03-22</td>
-                                                	<td>2017-03-22</td>
-                                                	<td>2016-08-11</td>
-                                                	<td>2015-08-25</td>
-                                                	<td>2015-02-26</td>
-                                                	<td>2014-07-31</td>
-                                              </tr>
-                      <tr>
-                        <th>报表类型</th>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                              </tr>
-                      <tr>
-                         <th>营业额</th>
-                                                	<td>248515.0000</td>
-                                                	<td>117755.0000</td>
-                                                	<td>259842.0000</td>
-                                                	<td>166760.0000</td>
-                                                	<td>128512.0000</td>
-                                                	<td>35380.0000</td>
-                                                	<td>24259.0000</td>
-                                                	<td>12750.0000</td>
-                                              </tr>
-                      <tr>
-                        <th>损益额</th>
-                                                	<td>35100.0000</td>
-                                                	<td>15919.0000</td>
-                                                	<td>33008.0000</td>
-                                                	<td>118570.0000</td>
-                                                	<td>14921.0000</td>
-                                                	<td>101858.0000</td>
-                                                	<td>53869.0000</td>
-                                                	<td>21345.0000</td>
-                                              </tr>
-                      <tr>
-                        <th>盈利或亏损</th>
-                                                	<td>盈利</td>
-                                                	<td>盈利</td>
-                                                	<td>盈利</td>
-                                                	<td>盈利</td>
-                                                	<td>盈利</td>
-                                                	<td>盈利</td>
-                                                	<td>盈利</td>
-                                                	<td>盈利</td>
-                                              </tr>
-                      <tr>
-                        <th>变动幅度</th>
-                                                	<td>6.3379</td>
-                                                	<td>6.6886</td>
-                                                	<td>-72.1616</td>
-                                                	<td>120.1080</td>
-                                                	<td>-85.3512</td>
-                                                	<td>377.1984</td>
-                                                	<td>52.7765</td>
-                                                	<td>59.1485</td>
-                                              </tr>
-                      <tr>
-                        <th>非��常性收益/(���p)</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
-                      <tr>
-                        <th>基本每股盈利(仙)</th>
-                                                	<td>910.0000</td>
-                                                	<td>413.0000</td>
-                                                	<td>855.0000</td>
-                                                	<td>3691.0000</td>
-                                                	<td>387.0000</td>
-                                                	<td>3987.0000</td>
-                                                	<td>2326.0000</td>
-                                                	<td>922.0000</td>
-                                              </tr>
-                      <tr>
-                        <th>摊薄每股盈利(仙)</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
-                      <tr>
-                        <th>特别股息</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
+</div>
 
-                      <tr>
-                        <th>股息截止日期开始</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
+<div class="banner">
+	<div class="link_wrap" style="width:90px">
+		<a href="http://comment5.news.sina.com.cn/comment/skin/feedback.html?channel=ly&amp;newsid=212" target="_blank" style="color:#f00;">意见反馈</a>
+		<a href="http://finance.sina.com.cn/333/2009-06-26/guest680.shtml" target="_blank">帮助</a>
 
-                       <tr>
-                        <th>股息截止日期结束</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
-                       <tr>
-                        <th>股息应付日期</th>
-                                                	<td>2018-05-31</td>
-                                                	<td>2017-09-14</td>
-                                                	<td>2017-05-31</td>
-                                                	<td>2016-06-01</td>
-                                                	<td>2016-09-22</td>
-                                                	<td>2015-10-06</td>
-                                                	<td>2015-04-15</td>
-                                                	<td>2014-09-12</td>
-                                              </tr>
-                       <tr>
-                        <th>币种</th>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                              </tr>
-                    </tbody>
-              </table>
-                              </div>
-         </div>
+	</div>
+ 	<style>
+	.lookup_wrap{width:auto;}
 
-      </div>
-         <p class="b2t"><a href="#" target="_self">返回顶部>></a>单位：（百万元）</p>
-    </div>
-  <!--重要财务指标 end-->
-  <!--资产负债表 start-->
-   	<a name="a2" id="a2"></a>
-  	<div class="part02">
-   	  <div class="sub01">
-       	  <div class="sub01_tt fblue">
-           	  <span class=""><a href="#a1" target="_self">重要财务指标</a></span>
-              <span class=" selected"><a href="#a2" target="_self">资产负债表</a></span>
-              <span class=""><a href="#a3" target="_self">现金流量表</a></span>
-              <span class=""><a href="#a4" target="_self">综合损益表</a></span>
-              <em class="rt">报表类型: <select class="fgrey" style="width:100px;" interface="getBalanceSheetForjs?symbol=$symbol&balanceSheet=" table="tableGetBalanceSheet" onchange="selectData(this);">
-                <option value="all" >全部</option>
-                <option value="zero" >年报</option>
-                <option value="1" >中报</option>
-                <option value="2" >一季报</option>
-                <option value="3" >三季报</option>
-            </select></em>
-        </div>
-        <div class="sub01_cc">
-            	<div class="sub01_c">
-            	            	                	<table cellspacing="0" cellpadding="0" border="0"  class="tab05">
-                    <tbody id="tableGetBalanceSheet">
-                     <tr>
-                        <th style="width:180px;">报告期</th>
-                                                	<td>2018-06-30</td>
-                                                	<td>2017-12-31</td>
-                                                	<td>2017-06-30</td>
-                                                	<td>2016-12-31</td>
-                                                	<td>2016-06-30</td>
-                                                	<td>2015-12-31</td>
-                                                	<td>2015-06-30</td>
-                                                	<td>2014-12-31</td>
-                                              </tr>
-                      <tr>
-                        <th>报表类型</th>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                              </tr>
-                     <tr>
-                        <th>非流动资产</th>
-                                                	<td>868815</td>
-                                                	<td>866709</td>
-                                                	<td>830947</td>
-                                                	<td>789971</td>
-                                                	<td>834735</td>
-                                                	<td>839970</td>
-                                                	<td>847088</td>
-                                                	<td>347816</td>
-                                             </tr>
-                      <tr>
-                        <th>流动资产</th>
-                                                	<td>217148</td>
-                                                	<td>233546</td>
-                                                	<td>221891</td>
-                                                	<td>223494</td>
-                                                	<td>227982</td>
-                                                	<td>192974</td>
-                                                	<td>232448</td>
-                                                	<td>110125</td>
-                                              </tr>
-                      <tr>
-                        <th>流动负债</th>
-                                                	<td>106480</td>
-                                                	<td>114888</td>
-                                                	<td>127492</td>
-                                                	<td>157312</td>
-                                                	<td>161169</td>
-                                                	<td>130303</td>
-                                                	<td>142094</td>
-                                                	<td>31350</td>
-                                              </tr>
-                      <tr>
-                        <th>净流动资产/(负债)</th>
-                                                	<td>110668</td>
-                                                	<td>118658</td>
-                                                	<td>94399</td>
-                                                	<td>66182</td>
-                                                	<td>66813</td>
-                                                	<td>62671</td>
-                                                	<td>90354</td>
-                                                	<td>78775</td>
-                                              </tr>
-                      <tr>
-                        <th> 非流动负债</th>
-                                                	<td>398959</td>
-                                                	<td>393820</td>
-                                                	<td>366688</td>
-                                                	<td>311963</td>
-                                                	<td>348382</td>
-                                                	<td>353530</td>
-                                                	<td>380344</td>
-                                                	<td>20544</td>
-                                              </tr>
-                      <tr>
-                        <th>少数股东权益 - (借)/贷</th>
-                                                	<td>140931</td>
-                                                	<td>132010</td>
-                                                	<td>121717</td>
-                                                	<td>119511</td>
-                                                	<td>122704</td>
-                                                	<td>120523</td>
-                                                	<td>116709</td>
-                                                	<td>11902</td>
-                                              </tr>
-                      <tr>
-                        <th>净资产/(负债)</th>
-                                                	<td>580524</td>
-                                                	<td>591547</td>
-                                                	<td>558658</td>
-                                                	<td>544190</td>
-                                                	<td>553166</td>
-                                                	<td>549111</td>
-                                                	<td>557098</td>
-                                                	<td>406047</td>
-                                              </tr>
-                      <tr>
-                        <th>已发行股本</th>
-                                                	<td>3858</td>
-                                                	<td>3858</td>
-                                                	<td>3858</td>
-                                                	<td>3858</td>
-                                                	<td>3860</td>
-                                                	<td>3860</td>
-                                                	<td>3860</td>
-                                                	<td>10489</td>
-                                              </tr>
-                      <tr>
-                        <th>储备</th>
-                                                	<td>191230</td>
-                                                	<td>211174</td>
-                                                	<td>188578</td>
-                                                	<td>176316</td>
-                                                	<td>181911</td>
-                                                	<td>180037</td>
-                                                	<td>191838</td>
-                                                	<td>383656</td>
-                                              </tr>
-                      <tr>
-                        <th>股东权益/(亏损)</th>
-                                                	<td>439593</td>
-                                                	<td>459537</td>
-                                                	<td>436941</td>
-                                                	<td>424679</td>
-                                                	<td>430462</td>
-                                                	<td>428588</td>
-                                                	<td>440389</td>
-                                                	<td>394145</td>
-                                              </tr>
-                      <tr>
-                        <th>无形资产(非流动资产)</th>
-                                                	<td>105527</td>
-                                                	<td>103256</td>
-                                                	<td>101072</td>
-                                                	<td>97561</td>
-                                                	<td>80881</td>
-                                                	<td>114841</td>
-                                                	<td>134802</td>
-                                                	<td>--</td>
-                                              </tr>
-                      <tr>
-                        <th>物业、厂房及设备(非流动资产)</th>
-                                                	<td>160105</td>
-                                                	<td>159149</td>
-                                                	<td>153249</td>
-                                                	<td>145942</td>
-                                                	<td>177424</td>
-                                                	<td>180189</td>
-                                                	<td>179180</td>
-                                                	<td>50739</td>
-                                              </tr>
-                     <tr>
-                        <th>附属公司权益(非流动资产)</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
-                      <tr>
-                        <th>联营公司权益 (非流动资产)</th>
-                                                	<td>140915</td>
-                                                	<td>145343</td>
-                                                	<td>147750</td>
-                                                	<td>150406</td>
-                                                	<td>149721</td>
-                                                	<td>148372</td>
-                                                	<td>146468</td>
-                                                	<td>216841</td>
-                                              </tr>
-                       <tr>
-                        <th>其他投资(非流动资产)</th>
-                                                	<td>7689</td>
-                                                	<td>7813</td>
-                                                	<td>7570</td>
-                                                	<td>5954</td>
-                                                	<td>8343</td>
-                                                	<td>10255</td>
-                                                	<td></td>
-                                                	<td>10705</td>
-                                              </tr>
-                      <tr>
-                        <th>应收账款(流动资产)</th>
-                                                	<td>13646</td>
-                                                	<td>14132</td>
-                                                	<td>14202</td>
-                                                	<td>13202</td>
-                                                	<td>19033</td>
-                                                	<td>19165</td>
-                                                	<td>16531</td>
-                                                	<td>1781</td>
-                                              </tr>
-                      <tr>
-                        <th>存货(流动资产)</th>
-                                                	<td>22584</td>
-                                                	<td>21708</td>
-                                                	<td>20601</td>
-                                                	<td>18852</td>
-                                                	<td>19888</td>
-                                                	<td>19761</td>
-                                                	<td>19729</td>
-                                                	<td>73199</td>
-                                              </tr>
-                      <tr>
-                        <th>现金及银行结存(流动资产)</th>
-                                                	<td>142754</td>
-                                                	<td>160470</td>
-                                                	<td>150223</td>
-                                                	<td>156270</td>
-                                                	<td>154407</td>
-                                                	<td>121171</td>
-                                                	<td>162062</td>
-                                                	<td>33179</td>
-                                              </tr>
-                      <tr>
-                        <th>应付帐款(流动负债)</th>
-                                                	<td>18409</td>
-                                                	<td>19252</td>
-                                                	<td>17478</td>
-                                                	<td>17380</td>
-                                                	<td>21623</td>
-                                                	<td>20393</td>
-                                                	<td>21059</td>
-                                                	<td>1663</td>
-                                              </tr>
-                      <tr>
-                        <th>银行贷款(流动负债)</th>
-                                                	<td>7929</td>
-                                                	<td>19080</td>
-                                                	<td>9923</td>
-                                                	<td>20612</td>
-                                                	<td>22418</td>
-                                                	<td>9663</td>
-                                                	<td>20887</td>
-                                                	<td>12409</td>
-                                              </tr>
-                      <tr>
-                        <th>非流动银行贷款</th>
-                                                	<td>96233</td>
-                                                	<td>92091</td>
-                                                	<td>100837</td>
-                                                	<td>64371</td>
-                                                	<td>77500</td>
-                                                	<td>75410</td>
-                                                	<td>71585</td>
-                                                	<td>12891</td>
-                                              </tr>
-                      <tr>
-                        <th>总资产</th>
-                                                	<td>1085963</td>
-                                                	<td>1100255</td>
-                                                	<td>1052838</td>
-                                                	<td>1013465</td>
-                                                	<td>1062717</td>
-                                                	<td>1032944</td>
-                                                	<td>1079536</td>
-                                                	<td>457941</td>
-                                              </tr>
-                      <tr>
-                        <th>总负债</th>
-                                                	<td>505439</td>
-                                                	<td>508708</td>
-                                                	<td>494180</td>
-                                                	<td>469275</td>
-                                                	<td>509551</td>
-                                                	<td>483833</td>
-                                                	<td>522438</td>
-                                                	<td>51894</td>
-                                              </tr>
-                      <tr>
-                        <th>股份数目(香港)</th>
-                                                	<td>3857678500股</td>
-                                                	<td>3857678500股</td>
-                                                	<td>3857678500股</td>
-                                                	<td>3857678500股</td>
-                                                	<td>3859678500股</td>
-                                                	<td>3859678500股</td>
-                                                	<td>3859678500股</td>
-                                                	<td>2316164338股</td>
-                                              </tr>
-                      <tr>
-                        <th>币种</th>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                              </tr>
-                    </tbody>
-              </table>
-              	                            </div>
-         </div>
-      </div>
-         <p class="b2t"><a href="#" target="_self">返回顶部>></a>单位：（百万元）</p>
-    </div>
-  <!--资产负债表 end-->
-    <!--现金流量表 start-->
-   	<a name="a3" id="a3"></a>
-  	<div class="part02">
-   	  <div class="sub01">
-       	  <div class="sub01_tt fblue">
-           	  <span class=""><a href="#a1" target="_self">重要财务指标</a></span>
-              <span class=""><a href="#a2" target="_self">资产负债表</a></span>
-              <span class=" selected"><a href="#a3" target="_self">现金流量表</a></span>
-              <span class=""><a href="#a4" target="_self">综合损益表</a></span>
-              <em class="rt">报表类型: <select class="fgrey" style="width:100px;" interface="getCashFlowForjs?symbol=$symbol&cashFlow=" table="tableGetCashFlow" onchange="selectData(this);">
-                <option value="all" >全部</option>
-                <option value="zero" >年报</option>
-                <option value="1" >中报</option>
-                <option value="2" >一季报</option>
-                <option value="3" >三季报</option>
-            </select></em>
-        </div>
-        <div class="sub01_cc">
-            	<div class="sub01_c">
-            	                	<table cellspacing="0" cellpadding="0" border="0"  class="tab05">
-                    <tbody id="tableGetCashFlow">
-                     <tr>
-                        <th style="width:180px;">报告期</th>
-                                                	<td>2018-06-30</td>
-                                                	<td>2017-12-31</td>
-                                                	<td>2017-06-30</td>
-                                                	<td>2016-12-31</td>
-                                                	<td>2016-06-30</td>
-                                                	<td>2015-12-31</td>
-                                                	<td>2015-06-30</td>
-                                                	<td>2014-12-31</td>
-                                             </tr>
-                      <tr>
-                        <th>报表类型</th>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                              </tr>
-                      <tr>
-                        <th>经营业务所得之现金流入净额</th>
-                                                	<td>21361</td>
-                                                	<td>53596</td>
-                                                	<td>22202</td>
-                                                	<td>40338</td>
-                                                	<td>18874</td>
-                                                	<td>44549</td>
-                                                	<td>17652</td>
-                                                	<td>10164</td>
-                                              </tr>
-                      <tr>
-                        <th>投资活动之现金流入净额</th>
-                                                	<td>-13479</td>
-                                                	<td>-48683</td>
-                                                	<td>-31254</td>
-                                                	<td>-18027</td>
-                                                	<td>-8673</td>
-                                                	<td>72568</td>
-                                                	<td>93758</td>
-                                                	<td>-7723</td>
-                                              </tr>
-                      <tr>
-                        <th>融资活动之现金流入净额</th>
-                                                	<td>-25598</td>
-                                                	<td>-713</td>
-                                                	<td>3005</td>
-                                                	<td>12788</td>
-                                                	<td>23035</td>
-                                                	<td>-25383</td>
-                                                	<td>21215</td>
-                                                	<td>-4281</td>
-                                              </tr>
-                      <tr>
-                        <th>现金及现金等价物增加</th>
-                                                	<td>-17716</td>
-                                                	<td>4200</td>
-                                                	<td>-6047</td>
-                                                	<td>35099</td>
-                                                	<td>33236</td>
-                                                	<td>91734</td>
-                                                	<td>132625</td>
-                                                	<td>-1840</td>
-                                              </tr>
-                      <tr>
-                        <th>会计年初之现金及现金等价物</th>
-                                                	<td>160470</td>
-                                                	<td>156270</td>
-                                                	<td>156270</td>
-                                                	<td>121171</td>
-                                                	<td>121171</td>
-                                                	<td>29437</td>
-                                                	<td>29437</td>
-                                                	<td>31277</td>
-                                              </tr>
-                      <tr>
-                        <th>会计年终之现金及现金等价物</th>
-                                                	<td>142754</td>
-                                                	<td>160470</td>
-                                                	<td>150223</td>
-                                                	<td>156270</td>
-                                                	<td>154407</td>
-                                                	<td>121171</td>
-                                                	<td>162062</td>
-                                                	<td>29437</td>
-                                              </tr>
-                      <tr>
-                        <th>外汇兑换率变动之影响</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
-                      <tr>
-                        <th>购置固定资产款项</th>
-                                                	<td>-9158</td>
-                                                	<td>-23521</td>
-                                                	<td>-8735</td>
-                                                	<td>-20046</td>
-                                                	<td>-9475</td>
-                                                	<td>-22494</td>
-                                                	<td>-7680</td>
-                                                	<td>-7867</td>
-                                              </tr>
-                      <tr>
-                        <th>币种</th>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                              </tr>
-                    </tbody>
-              </table>
-                             </div>
+	</style>
 
-         </div>
+	<div class="lookup_wrap">
+		<script type="text/javascript" src="http://www.sinaimg.cn/cj/financewidget/js/SuggestServer_14_04_22_gb.js"></script>
+		<form id="SSForm" action="http://biz.finance.sina.com.cn/suggest/lookup_n.php" target="_blank" method="get" style="position:relative; zoom:1; z-index:100;">
+			<select id="selectSuggest" onchange="suggestServer.changeType(this.value);">
+				<option value="" selected="selected">全部</option>
+				<option value="stock">沪深</option>
 
-      </div>
-         <p class="b2t"><a href="#" target="_self">返回顶部>></a>单位：（百万元）</p>
-    </div>
-    <!--现金流量表 end-->
-    <!--综合损益表 start-->
-   	<a name="a4" id="a4"></a>
-  	<div class="part02">
-   	  <div class="sub01">
-       	  <div class="sub01_tt fblue">
-           	  <span class=""><a href="#a1" target="_self">重要财务指标</a></span>
-              <span class=" "><a href="#a2" target="_self">资产负债表</a></span>
-              <span class=""><a href="#a3" target="_self">现金流量表</a></span>
-              <span class="selected"><a href="#a4" target="_self">综合损益表</a></span>
-              <em class="rt">报表类型: <select class="fgrey" style="width:100px;" interface="getFinanceStatusForjs?symbol=$symbol&financeStatus=" table="tableGetFinanceStatus" onchange="selectData(this);">
-                <option value="all" >全部</option>
-                <option value="zero" >年报</option>
-                <option value="1" >中报</option>
-                <option value="2" >一季报</option>
-                <option value="3" >三季报</option>
-            </select></em>
-        </div>
-        <div class="sub01_cc">
-            	<div class="sub01_c">
-            	            	            	<table cellspacing="0" cellpadding="0" border="0"  class="tab05">
-                    <tbody id="tableGetFinanceStatus">
-                     <tr>
+				<option value="fund">基金</option>
+				<option value="hkstock">港股</option>
+				<option value="usstock">美股</option>
+			</select>
+			<input type="hidden" name="country" value="" />
+			<input type="text" id="inputSuggest" name="q" value="代码/名称/拼音" autocomplete="off" />
+			<input type="submit" value="查询" />
+		</form>
+
+		<script type="text/javascript">
+			var suggestServer = new SuggestServer();
+			suggestServer.bind({
+				"input": "inputSuggest",
+				"value": "@2@",
+				"type": "",
+				"max": 10,
+				"width": 270,
+				"link": "http://biz.finance.sina.com.cn/suggest/lookup_n.php?country=@type@&amp;q=@code@",
+				"head": ["选项", "代码", "中文名称"],
+				"body": [-1, 2, 4],
+				"callback": null
+			});
+			var SSForm = document.getElementById('SSForm');
+
+			SSForm.onsubmit = function (e) {
+				e = e || window.event;
+				if (suggestServer._elementContainer !== null) {
+					if (suggestServer._elementContainer.innerHTML !== '') {
+						var table = this.getElementsByTagName('tbody')[0];
+						var fanchenElementLineCurrent = suggestServer._elementLineCurrent;
+						if (fanchenElementLineCurrent == null) {
+							var s = suggestServer._fill();
+							var typeCode = suggestServer._getType(s[1]) || s[1];
+							this[1].value = typeCode;
+							this[2].value = suggestServer._getFullCode(s);
+						} else {
+							var s = fanchenElementLineCurrent.id.split(',');
+							var typeCode = suggestServer._getType(s[1]) || s[1];
+							this[1].value = typeCode;
+							this[2].value = suggestServer._getFullCode(s);
+						}
+					}
+				}
+			}
+		</script>
+	</div>
+
+	<div class="time_wrap">北京时间:<span id="bj_time">24日 23:28:39</span> | 美东时间:<span id="edt_time">24日 11:28:39</span></div>
+
+</div>
+
+<div class="banner_line"></div>
 
 
-						 '<tbody id="tableGetFinanceStatus">' + '<th style="width:180px;">报告期</th>'
 
-                     	<th style="width:180px;">报告期</th>
-                                                	<td>2018-06-30</td>
-                                                	<td>2017-12-31</td>
-                                                	<td>2017-06-30</td>
-                                                	<td>2016-12-31</td>
-                                                	<td>2016-06-30</td>
-                                                	<td>2015-12-31</td>
-                                                	<td>2015-06-30</td>
-                                                	<td>2014-12-31</td>
-                                             </tr>
-                      <tr>
-                        <th>报表类型</th>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                                	<td>中报</td>
-                                                	<td>年报</td>
-                                              </tr>
-                      <tr>
-                        <th>营业额</th>
-                                                	<td>130984</td>
-                                                	<td>248515</td>
-                                                	<td>117755</td>
-                                                	<td>259842</td>
-                                                	<td>128512</td>
-                                                	<td>176094</td>
-                                                	<td>35380</td>
-                                                	<td>24259</td>
-                                              </tr>
-                      <tr>
-                        <th> 除税前盈利/(亏损)</th>
-                                                	<td>23792</td>
-                                                	<td>46418</td>
-                                                	<td>20598</td>
-                                                	<td>46463</td>
-                                                	<td>20851</td>
-                                                	<td>128520</td>
-                                                	<td>104753</td>
-                                                	<td>55927</td>
-                                              </tr>
-                      <tr>
-                        <th>税项</th>
-                                                	<td>-1544</td>
-                                                	<td>-2816</td>
-                                                	<td>-234</td>
-                                                	<td>-4551</td>
-                                                	<td>-1475</td>
-                                                	<td>-3640</td>
-                                                	<td>-1643</td>
-                                                	<td>-1319</td>
-                                              </tr>
-                      <tr>
-                        <th> 除税后盈利/(亏损)</th>
-                                                	<td>22248</td>
-                                                	<td>43602</td>
-                                                	<td>20364</td>
-                                                	<td>41912</td>
-                                                	<td>19376</td>
-                                                	<td>124880</td>
-                                                	<td>103110</td>
-                                                	<td>54608</td>
-                                              </tr>
-                      <tr>
-                        <th>少数股东权益</th>
-                                                	<td>4228</td>
-                                                	<td>8502</td>
-                                                	<td>4445</td>
-                                                	<td>8904</td>
-                                                	<td>4455</td>
-                                                	<td>6310</td>
-                                                	<td>1252</td>
-                                                	<td>739</td>
-                                              </tr>
-                      <tr>
-                        <th>股东应占盈利/(亏损)</th>
-                                                	<td>18020</td>
-                                                	<td>35100</td>
-                                                	<td>15919</td>
-                                                	<td>33008</td>
-                                                	<td>14921</td>
-                                                	<td>118570</td>
-                                                	<td>101858</td>
-                                                	<td>53869</td>
-                                              </tr>
-                      <tr>
-                        <th>股息</th>
-                                                	<td>3356</td>
-                                                	<td>10994</td>
-                                                	<td>3009</td>
-                                                	<td>10340</td>
-                                                	<td>2837</td>
-                                                	<td>373353</td>
-                                                	<td>2702</td>
-                                                	<td>24676</td>
-                                              </tr>
-                      <tr>
-                        <th>除税及股息后盈利/(亏损)</th>
-                                                	<td>14664</td>
-                                                	<td>24106</td>
-                                                	<td>12910</td>
-                                                	<td>22668</td>
-                                                	<td>12084</td>
-                                                	<td>-254783</td>
-                                                	<td>99156</td>
-                                                	<td>29193</td>
-                                              </tr>
-                      <tr>
-                        <th>基本每股盈利(仙)</th>
-                                                	<td>467.000000</td>
-                                                	<td>910.000000</td>
-                                                	<td>413.000000</td>
-                                                	<td>855.000000</td>
-                                                	<td>387.000000</td>
-                                                	<td>3691.000000</td>
-                                                	<td>3987.000000</td>
-                                                	<td>2326.000000</td>
-                                              </tr>
-                      <tr>
-                        <th>摊薄每股盈利(仙)</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
-                      <tr>
-                        <th>每股股息(仙)</th>
-                                                	<td>87.000000</td>
-                                                	<td>285.000000</td>
-                                                	<td>78.000000</td>
-                                                	<td>268.000000</td>
-                                                	<td>73.500000</td>
-                                                	<td>255.000000</td>
-                                                	<td>70.000000</td>
-                                                	<td>1065.400000</td>
-                                              </tr>
-                       <tr>
-                        <th>销售成本</th>
-                                                	<td>-54546</td>
-                                                	<td>-101328</td>
-                                                	<td>-47650</td>
-                                                	<td>-101943</td>
-                                                	<td>-49044</td>
-                                                	<td>-68243</td>
-                                                	<td>-11067</td>
-                                                	<td>-12980</td>
-                                              </tr>
-                       <tr>
-                        <th>折旧</th>
-                                                	<td>-8855</td>
-                                                	<td>-14679</td>
-                                                	<td>-7238</td>
-                                                	<td>-13262</td>
-                                                	<td>-8201</td>
-                                                	<td>-9740</td>
-                                                	<td>-1662</td>
-                                                	<td>-393</td>
-                                              </tr>
-                       <tr>
-                        <th>销售及分销费用</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
-                       <tr>
-                        <th>一般及行政费用</th>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                                	<td>--</td>
-                                              </tr>
-                       <tr>
-                        <th>利息费用/融资成本</th>
-                                                	<td>-4335</td>
-                                                	<td>-8274</td>
-                                                	<td>-3856</td>
-                                                	<td>-7118</td>
-                                                	<td>-3508</td>
-                                                	<td>-4470</td>
-                                                	<td>-771</td>
-                                                	<td>-328</td>
-                                              </tr>
-                       <tr>
-                        <th>毛利</th>
-                                                	<td>76438</td>
-                                                	<td>147187</td>
-                                                	<td>70105</td>
-                                                	<td>157899</td>
-                                                	<td>79468</td>
-                                                	<td>107851</td>
-                                                	<td>24313</td>
-                                                	<td>11279</td>
-                                              </tr>
-                       <tr>
-                        <th>经营盈利</th>
-                                                	<td>23792</td>
-                                                	<td>46418</td>
-                                                	<td>20598</td>
-                                                	<td>46463</td>
-                                                	<td>20851</td>
-                                                	<td>128520</td>
-                                                	<td>104753</td>
-                                                	<td>22257</td>
-                                              </tr>
-                       <tr>
-                        <th>应占联营公司盈利</th>
-                                                	<td>4089</td>
-                                                	<td>6797</td>
-                                                	<td>2587</td>
-                                                	<td>6362</td>
-                                                	<td>2167</td>
-                                                	<td>10415</td>
-                                                	<td>7253</td>
-                                                	<td>33670</td>
-                                              </tr>
-                      <tr>
-                      <th>币种</th>
-                                               	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                	<td>港币</td>
-                                                </tr>
-                    </tbody>
-              </table>
-            	                           </div>
 
-         </div>
+<div class="content">
+	<div class="navtree" id="treeContainer"><h3 class="active"><a href="javascript:void(0);" hidefocus="true"><label></label>沪深股市</a></h3><ul style="display: block;"><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">申万行业</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">申万二级</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">热门概念</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">地域板块</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">证监会行业</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">分类</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">指数成分</a></li><li><a href="javascript:void(0);" hidefocus="true">风险警示</a></li><li><a href="javascript:void(0);" hidefocus="true">大盘指数</a></li><li><a href="http://vip.stock.finance.sina.com.cn/q/view/mainIndex.php" hidefocus="true" target="_blank">上证重点指数</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">排行</a></li><li><a href="javascript:void(0);" hidefocus="true">次新股</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink"><font color="#ff0000">沪港通</font></a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink"><font color="#ff0000">深港通</font></a></li></ul><h3><a href="javascript:void(0);" hidefocus="true">创业板</a></h3><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>基金</a></h3><ul style="display: none;"><li><a href="javascript:void(0);" hidefocus="true">封闭式基金</a></li><li><a href="javascript:void(0);" hidefocus="true">开放式基金</a></li><li><a href="javascript:void(0);" hidefocus="true">货币型基金</a></li><li><a href="javascript:void(0);" hidefocus="true">ETF基金净值</a></li><li><a href="javascript:void(0);" hidefocus="true">ETF基金行情</a></li><li><a href="javascript:void(0);" hidefocus="true">LOF基金行情</a></li><li><a href="javascript:void(0);" hidefocus="true">创新型基金</a></li><li><a href="javascript:void(0);" hidefocus="true">基金预测净值</a></li></ul><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>香港股市</a></h3><ul style="display: none;"><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">恒生行业</a></li><li><a href="javascript:void(0);" hidefocus="true">港股实时行情</a></li><li><a href="javascript:void(0);" hidefocus="true">全部港股</a></li><li><a href="javascript:void(0);" hidefocus="true">蓝筹股</a></li><li><a href="javascript:void(0);" hidefocus="true">红筹股</a></li><li><a href="javascript:void(0);" hidefocus="true">国企股</a></li><li><a href="javascript:void(0);" hidefocus="true">创业板</a></li><li><a href="javascript:void(0);" hidefocus="true">指数</a></li><li><a href="javascript:void(0);" hidefocus="true">A+H</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">窝轮</a></li><li><a href="javascript:void(0);" hidefocus="true">ADR</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">排行</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink"><font color="#ff0000">沪港通</font></a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink"><font color="#ff0000">深港通</font></a></li><li><a href="javascript:void(0);" hidefocus="true">中华系列指数</a></li></ul><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>债券</a></h3><ul style="display: none;"><li><a href="javascript:void(0);" hidefocus="true">沪深债券</a></li><li><a href="javascript:void(0);" hidefocus="true">深市债券</a></li><li><a href="javascript:void(0);" hidefocus="true">沪市债券</a></li><li><a href="javascript:void(0);" hidefocus="true">沪深可转债</a></li></ul><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>美国股市</a></h3><ul style="display: none;"><li><a href="javascript:void(0);" hidefocus="true">中国概念股</a></li><li><a href="javascript:void(0);" hidefocus="true">科技类</a></li><li><a href="javascript:void(0);" hidefocus="true">金融类</a></li><li><a href="javascript:void(0);" hidefocus="true">制造零售类</a></li><li><a href="javascript:void(0);" hidefocus="true">汽车能源类</a></li><li><a href="javascript:void(0);" hidefocus="true">媒体类</a></li><li><a href="javascript:void(0);" hidefocus="true">医药食品类</a></li><li><a href="http://finance.sina.com.cn/stock/usstock/sector.shtml" hidefocus="true" target="_blank"><font color="#FF8000">新版全部美股</font></a></li></ul><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>外汇</a></h3><ul style="display: none;"><li><a href="javascript:void(0);" hidefocus="true">基本汇率</a></li><li><a href="javascript:void(0);" hidefocus="true">热门汇率</a></li><li><a href="javascript:void(0);" hidefocus="true">所有汇率</a></li><li><a href="javascript:void(0);" hidefocus="true">交叉盘汇率</a></li><li><a href="javascript:void(0);" hidefocus="true">美元相关汇率</a></li><li><a href="javascript:void(0);" hidefocus="true">人民币相关汇率</a></li></ul><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>期货</a></h3><ul style="display: none;"><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">全球期货</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">中国金融期货交易所</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">上海期货交易所</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">大连商品交易所</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">郑州商品交易所</a></li><li><a href="javascript:void(0);" hidefocus="true">渤海商品交易所</a></li></ul><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>黄金</a></h3><ul style="display: none;"><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">黄金现货</a></li><li><a href="javascript:void(0);" hidefocus="true" class="parentLink">黄金期货</a></li></ul><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>环球股指</a></h3><ul style="display: none;"><li><a href="javascript:void(0);" hidefocus="true">美洲</a></li><li><a href="javascript:void(0);" hidefocus="true">欧洲</a></li><li><a href="javascript:void(0);" hidefocus="true">亚洲</a></li><li><a href="javascript:void(0);" hidefocus="true">非洲</a></li><li><a href="javascript:void(0);" hidefocus="true">大洋洲</a></li></ul><h3><a href="javascript:void(0);" hidefocus="true">板块汇总行情</a></h3><h3><a href="javascript:void(0);" hidefocus="true">网上交易</a></h3><h3 class=""><a href="javascript:void(0);" hidefocus="true"><label></label>我的自选</a></h3><ul style="display: none;"><li><a href="http://vip.stock.finance.sina.com.cn/portfolio/main.php" hidefocus="true" target="_blank">沪深自选</a></li><li><a href="http://vip.stock.finance.sina.com.cn/myfund/main.php" hidefocus="true" target="_blank">基金自选</a></li><li><a href="http://vip.stock.finance.sina.com.cn/hkstock/main.php" hidefocus="true" target="_blank">港股自选</a></li><li><a href="http://vip.stock.finance.sina.com.cn/myusstock/main.php" hidefocus="true" target="_blank">美股自选</a></li></ul></div>
 
-      </div>
-         <p class="b2t"><a href="#" target="_self">返回顶部>></a>单位：（百万元）</p>
-    </div>
-  <!--综合损益表 end-->
+	<div class="list_wrap" id="index_wrap" style="display:none;">
+		<div class="top_row">
+			<div class="mk_view" id="mk_view">
+			<div class="head">
+				<div style="float: right; width: 320px; text-align: center;"><b><a href="https://touzi.sina.com.cn/public/xray" suda-uatrack="key=ad_pc_finance_stock_mkt&amp;value=ad_pc_finance_stock_mkt_01" target="_blank" style="color:red">微博登录在线免费诊股</a></b>  <b><a href="http://finance.sina.com.cn/mobile/comfinanceweb.shtml" target="_blank" style="color:red">新浪财经新版客户端</a></b></div>
+				<!-- <div style="float: right; color: black; width: 72px; text-align: left;"><a href="http://money.finance.sina.com.cn/q/view/tw.php" target="_blank" style="color:black">台股</a></div> -->
 
-  <!-- end main -->
-  <!-- footer -->
+				<h3>市场概况</h3>
+
+				<div class="mk_select"><select id="mk_select"><option>沪深</option><option>港股</option><option>美股</option><option>基金</option><option>外汇</option></select></div>
+				<div class="tab_wrap">
+					<ul id="tabs_marketview">
+						<li class="active"><a href="javascript:void(0);">沪深</a></li>
+
+						<li><a href="javascript:void(0);">港股</a></li>
+
+						<li><a href="javascript:void(0);">美股</a></li>
+						<li><a href="javascript:void(0);">基金</a></li>
+						<li><a href="javascript:void(0);">外汇</a></li>
+						<li><a href="javascript:void(0);">商品</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+			<div id="contents_marketview">
+				<div class="img_row" id="stockA_index_wrap">
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/realstock/company/sh000001/nc.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/small/nsh000001.gif?1537802918293" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/realstock/company/sh000001/nc.shtml" target="_blank">上证</a>  <span class="up">2797.48 +2.50% 1489.76亿元</span></dd>
+
+				</dl>
+				<dl>
+
+					<dt><a href="http://finance.sina.com.cn/realstock/company/sz399001/nc.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/small/nsz399001.gif?1537802918293" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/realstock/company/sz399001/nc.shtml" target="_blank">深成</a>  <span class="up">8409.18 +2.13% 1725.15亿元</span></dd>
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/realstock/company/sz399415/nc.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/small/nsz399415.gif?1537802918293" /></a></dt>
+
+					<dd><a href="http://finance.sina.com.cn/realstock/company/sz399415/nc.shtml" target="_blank">大数据100</a>  <span class="up">4766.85 +1.43% 117.28亿元</span></dd>
+				</dl>
+			</div>
+			<div class="img_row" style="display:none;" id="stockHK_index_wrap">
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/stock/hkstock/quote.html?code=HSI" target="_blank"><img src="http://image.sinajs.cn/newchart/hk_stock/min_small/HSI.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/stock/hkstock/quote.html?code=HSI" target="_blank">恒生</a>  <span>读取中...</span></dd>
+
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/stock/hkstock/quote.html?code=HSCCI" target="_blank"><img src="http://image.sinajs.cn/newchart/hk_stock/min_small/HSCCI.gif" /></a></dt>
+
+					<dd><a href="http://finance.sina.com.cn/stock/hkstock/quote.html?code=HSCCI" target="_blank">红筹</a>  <span>读取中...</span></dd>
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/stock/hkstock/quote.html?code=HSCEI" target="_blank"><img src="http://image.sinajs.cn/newchart/hk_stock/min_small/HSCEI.gif" /></a></dt>
+
+					<dd><a href="http://finance.sina.com.cn/stock/hkstock/quote.html?code=HSCEI" target="_blank">国企</a>  <span>读取中...</span></dd>
+				</dl>
+			</div>
+
+			<div class="img_row" style="display:none;" id="stockUS_index_wrap">
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/stock/usstock/US100_DJI.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/v5/usstock/min_idx_s/.dji.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/stock/usstock/US100_DJI.shtml" target="_blank">道琼斯</a>  <span>读取中...</span></dd>
+
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/stock/usstock/US100_IXIC.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/v5/usstock/min_idx_s/.ixic.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/stock/usstock/US100_IXIC.shtml" target="_blank">纳斯达克</a>  <span>读取中...</span></dd>
+
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/stock/usstock/US100_INX.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/v5/usstock/min_idx_s/.inx.gif" /></a></dt>
+
+					<dd><a href="http://finance.sina.com.cn/stock/usstock/US100_INX.shtml" target="_blank">标普500</a>  <span>读取中...</span></dd>
+				</dl>
+			</div>
+			<div class="img_row" style="display:none;" id="fund_index_wrap">
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/fund/quotes/index000011.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/small/nsh000011.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/fund/quotes/index000011.shtml" target="_blank">沪基</a>  <span>读取中...</span></dd>
+
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/realstock/company/sz399415/nc.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/small/nsz399415.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/realstock/company/sz399415/nc.shtml" target="_blank">I100</a>  <span>读取中...</span></dd>
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/realstock/company/sz399416/nc.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/small/nsz399416.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/realstock/company/sz399416/nc.shtml" target="_blank">I300</a>  <span>读取中...</span></dd>
+				</dl>
+
+			</div>
+			<div class="img_row" style="display:none;" id="forex_index_wrap">
+
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/money/forex/hq/USDCNY.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/v5/forex/min30_m/USDCNY.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/money/forex/hq/USDCNY.shtml" target="_blank">人民币</a>  <span>读取中...</span></dd>
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/money/forex/hq/EURUSD.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/v5/forex/min5_m/EURUSD.gif" /></a></dt>
+
+					<dd><a href="http://finance.sina.com.cn/money/forex/hq/EURUSD.shtml" target="_blank">欧元</a>  <span>读取中...</span></dd>
+
+				</dl>
+				<dl>
+					<dt><a href="http://finance.sina.com.cn/money/forex/hq/DINIW.shtml" target="_blank"><img src="http://image.sinajs.cn/newchart/v5/forex/min_m/DINIW.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/money/forex/hq/DINIW.shtml" target="_blank">美元指数</a>  <span>读取中...</span></dd>
+				</dl>
+			</div>
+
+			<div class="img_row" style="display:none;" id="future_index_wrap">
+
+				<dl style="width:390px;">
+					<dt><a href="http://finance.sina.com.cn/money/future/quote_hf.html?GC" target="_blank"><img src="http://image.sinajs.cn/newchart/v5/futures/global/mins/GC.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/money/future/quote_hf.html?GC" target="_blank">黄金</a>  <span>读取中...</span></dd>
+				</dl>
+				<dl style="width:390px;">
+					<dt><a href="http://finance.sina.com.cn/money/future/quote_hf.html?CL" target="_blank"><img src="http://image.sinajs.cn/newchart/v5/futures/global/mins/CL.gif" /></a></dt>
+					<dd><a href="http://finance.sina.com.cn/money/future/quote_hf.html?CL" target="_blank">原油</a>  <span>读取中...</span></dd>
+
+				</dl>
+			</div>
+			</div>
+
+			</div>
+
+
+		</div>
+		<!-- 指数end -->
+		<!-- SFA 图片banner start -->
+		<div class="Financeapp-pics" id="financeApp_pics"><a target="_blank" href="https://finance.sina.com.cn/mobile/comfinanceweb.shtml?source=gegu01" data-sudaclick="sf_cjapp_banner_p" suda-uatrack="key=pc_hq_callup&amp;value=hq_main_top_zg"><img style="display:block;margin:0 auto; width:100%;padding-top:10px;" src="//n.sinaimg.cn/test/77/w775h102/20180822/C-ln-hhzsnea8290835.gif" /></a></div>
+		<script src="//finance.sina.com.cn/other/src/app/FinanceAppPics.js" charset="utf-8"></script>
+		<script>
+			new FinanceAppPics({
+				imgStyle:'width:100%;padding-top:10px;'
+			});
+		</script>
+		<!-- SFA 图片banner end -->
+		<div class="pf_view" id="pf_view" style="display: block;">
+			<div class="head" id="pf_head">
+				<div class="pf_index"><a href="http://vip.stock.finance.sina.com.cn/portfolio/main.php" target="_blank">管理自选股&gt;&gt;</a></div>
+				<h3>我的自选</h3>
+				<div class="tab_wrap">
+					<ul id="pf_tabs">
+						<li class="active" id="pf_tab_cn"><a href="javascript:void(0);">沪深</a></li>
+						<li id="pf_tab_hk"><a href="javascript:void(0);">港股</a></li>
+						<li id="pf_tab_us"><a href="javascript:void(0);">美股</a></li>
+					</ul>
+				</div>
+
+				<div class="pf_logout" id="pf_logout" style="display: none;"><a href="javascript:void(0);">退出登录</a></div>
+
+				<div id="pfgroup_wrap" class="pf_groups" style="display: none;">
+					<div id="pg_cn"></div>
+
+					<div id="pg_hk" style="display:none;"></div>
+
+					<div id="pg_us" style="display:none;"></div>
+				</div>
+				<a class="hkrefresh" id="hkrefresh_zxg" style="display:none" href="javascript:PfCtrl.SentHqRequest();"><span class="hkhqtime" id="hkhqtime_zxg">--:--</span></a>
+
+			</div>
+
+			<div class="pf_wrap">
+				<div class="pf_login" id="pf_login" style="display: block;">
+					<span>我的自选系列提供强大的证券管理定制功能，未注册<a href="http://login.sina.com.cn/signup/signup.php?entry=finance&amp;r=http://vip.stock.finance.sina.com.cn/portfolio/main.php" target="_blank">请点击此处</a>。</span>
+
+					<form id="pf_submit">
+					用户名： <input type="text" id="pf_user" autocomplete="off" /> 密码： <input type="password" id="pf_pw" /> <input type="submit" value="登录" style="width:60px;" id="" />
+					</form>
+					<script language="javascript" type="text/javascript">
+					//可复制过去改下下面参数就可以了
+					function initUserName(){
+						passcardOBJ.init(
+						// FlashSoft 注意,最好这个input的autocomplete设定为off
+						// 需要有下拉框的input对象
+						document.getElementById("pf_user"),
+						{
+							// 鼠标经过字体颜色
+							overfcolor: "#666",
+							// 鼠标经过背景颜色
+							overbgcolor: "#d6edfb",
+							// 鼠标离开字体颜色
+							outfcolor: "#000000",
+							// 鼠标离开背景颜色
+							outbgcolor: ""
+						},
+						// 输入完成后,自动需要跳到的input对象[备选]
+						document.getElementById("pf_pw"),
+						null,
+						document.getElementById("SSOTipsContainer")
+						);
+					}
+					initUserName();
+					</script>
+
+
+				</div>
+
+				<div class="tbl_wrap" id="pf_tbl_wrap" style="display: none;">
+					<div>
+						<table style="width:100%;">
+
+						<thead>
+							<tr><th style="width:77px;">名称</th><td style="width:60px;">最新价</td><td style="width:60px;">涨跌额</td><td style="width:65px;">涨跌幅</td><td style="width:60px;">昨收</td><td style="width:60px;">今开</td><td style="width:60px;">最高</td><td style="width:60px;">最低</td><td style="width:90px;">成交量/手</td><td style="width:90px;">成交额/万</td><td></td></tr>
+
+						</thead>
+						</table>
+
+						<div id="pfdata_wrap_cn"><div style="height:150px; line-height:150px; text-align:center;">读取中...</div></div>
+					</div>
+					<div style="display:none;">
+						<table style="width:100%;">
+
+						<thead>
+							<tr><th style="width:97px;">名称</th><td style="width:60px;">最新价</td><td style="width:60px;">涨跌额</td><td style="width:65px;">涨跌幅</td><td style="width:60px;">昨收</td><td style="width:60px;">今开</td><td style="width:60px;">最高</td><td style="width:60px;">最低</td><td style="width:80px;">成交量/万</td><td style="width:80px;">成交额/万</td><td></td></tr>
+
+						</thead>
+
+						</table>
+						<div id="pfdata_wrap_hk"><div style="height:150px; line-height:150px; text-align:center;">读取中...</div></div>
+					</div>
+					<div style="display:none;">
+						<table style="width:100%;">
+
+						<thead>
+
+							<tr><th style="width:97px;">名称</th><td style="width:60px;">最新价</td><td style="width:60px;">涨跌额</td><td style="width:65px;">涨跌幅</td><td style="width:60px;">昨收</td><td style="width:60px;">今开</td><td style="width:60px;">最高</td><td style="width:60px;">最低</td><td style="width:80px;">成交量/万</td><td style="width:80px;">平均成交量/万</td><td></td></tr>
+						</thead>
+						</table>
+
+						<div id="pfdata_wrap_us"><div style="height:150px; line-height:150px; text-align:center;">读取中...</div></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 自选end -->
+
+
+		<div id="rank_wrap">
+
+
+
+
+
+
+
+		<div id="cnlt" style="">
+			<div class="head">
+				<div class="move"><span>移动模块：</span><a href="javascript:void(0);" class="noup" id="cnlt_up"></a><a href="javascript:void(0);" class="movedown" id="cnlt_down"></a></div>
+				<div class="amount"><span>显示</span><div id="cnlt_num"><a href="javascript:void(0);" class="active">5</a><a href="javascript:void(0);">10</a><a href="javascript:void(0);">15</a></div><span>条</span></div>
+
+				<h3>沪深排行</h3>
+				<div class="tab_wrap">
+					<ul id="cnlt_tabs">
+						<li class="active"><a href="javascript:void(0);">沪A</a></li>
+						<li><a href="javascript:void(0);">沪B</a></li>
+						<li><a href="javascript:void(0);">深A</a></li>
+
+						<li><a href="javascript:void(0);">深B</a></li>
+						<li><a href="javascript:void(0);">警示板</a></li>
+						<li><a href="javascript:void(0);">沪A涨速</a></li>
+						<li><a href="javascript:void(0);">深A涨速</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="cnlt_contents">
+				<div class="tbl_wrap noborder" id="cnlt0"><table border="0"><thead><tr><th><a href="javascript:void(0);">代码</a></th><th>名称</th><td class="colorize"><a href="javascript:void(0);">最新价</a></td><td class="colorize"><a href="javascript:void(0);">涨跌额</a></td><td class="colorize sort_up"><a href="javascript:void(0);">涨跌幅</a></td><td class="colorize"><a href="javascript:void(0);">买入</a></td><td class="colorize"><a href="javascript:void(0);">卖出</a></td><td class="colorize"><a href="javascript:void(0);">昨收</a></td><td class="colorize"><a href="javascript:void(0);">今开</a></td><td class="colorize"><a href="javascript:void(0);">最高</a></td><td class="colorize"><a href="javascript:void(0);">最低</a></td><td><a href="javascript:void(0);">成交量/手</a></td><td><a href="javascript:void(0);">成交额/万</a></td><th>收藏</th><th>股吧</th></tr></thead><tbody><tr class="red" style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh603583" target="_blank">sh603583</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh603583" target="_blank"><a class="skeyword stocksh603583">N捷昌</a></a></th><td class="colorize">　42.00</td><td class="colorize">+12.83</td><td class="colorize sort_up">+43.984%</td><td class="colorize">42.00</td><td class="colorize">0.00</td><td class="colorize">29.17</td><td class="colorize">35.00</td><td class="colorize">42.00</td><td class="colorize">35.00</td><td>447</td><td>187.09</td><th><a href="http://vip.stock.finance.sina.com.cn/portfolio/hqjia.php?symbol=sh603583" target="_blank" title="加入我的自选"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/addto_p.gif" alt="收藏" /></a></th><th><a href="http://guba.sina.com.cn/bar.php?name=sh603583" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="red" style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh600462" target="_blank">sh600462</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh600462" target="_blank"><a class="skeyword stocksh600462">九有股份</a></a></th><td class="colorize">　3.27</td><td class="colorize">+0.30</td><td class="colorize sort_up">+10.101%</td><td class="colorize">3.27</td><td class="colorize">0.00</td><td class="colorize">2.97</td><td class="colorize">3.27</td><td class="colorize">3.27</td><td class="colorize">3.27</td><td>79,581</td><td>2,602.30</td><th><a href="http://vip.stock.finance.sina.com.cn/portfolio/hqjia.php?symbol=sh600462" target="_blank" title="加入我的自选"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/addto_p.gif" alt="收藏" /></a></th><th><a href="http://guba.sina.com.cn/bar.php?name=sh600462" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="red" style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh601111" target="_blank">sh601111</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh601111" target="_blank"><a class="skeyword stocksh601111">中国国航</a></a></th><td class="colorize">　8.32</td><td class="colorize">+0.76</td><td class="colorize sort_up">+10.053%</td><td class="colorize">8.32</td><td class="colorize">0.00</td><td class="colorize">7.56</td><td class="colorize">7.67</td><td class="colorize">8.32</td><td class="colorize">7.61</td><td>1,105,706</td><td>88,613.33</td><th><a href="http://vip.stock.finance.sina.com.cn/portfolio/hqjia.php?symbol=sh601111" target="_blank" title="加入我的自选"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/addto_p.gif" alt="收藏" /></a></th><th><a href="http://guba.sina.com.cn/bar.php?name=sh601111" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="red" style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh600158" target="_blank">sh600158</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh600158" target="_blank"><a class="skeyword stocksh600158">中体产业</a></a></th><td class="colorize">　9.09</td><td class="colorize">+0.83</td><td class="colorize sort_up">+10.048%</td><td class="colorize">9.09</td><td class="colorize">0.00</td><td class="colorize">8.26</td><td class="colorize">8.37</td><td class="colorize">9.09</td><td class="colorize">8.32</td><td>280,013</td><td>24,422.79</td><th><a href="http://vip.stock.finance.sina.com.cn/portfolio/hqjia.php?symbol=sh600158" target="_blank" title="加入我的自选"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/addto_p.gif" alt="收藏" /></a></th><th><a href="http://guba.sina.com.cn/bar.php?name=sh600158" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="red" style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh603313" target="_blank">sh603313</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=sh603313" target="_blank"><a class="skeyword stocksh603313">梦百合</a></a></th><td class="colorize">　17.11</td><td class="colorize">+1.56</td><td class="colorize sort_up">+10.032%</td><td class="colorize">17.11</td><td class="colorize">0.00</td><td class="colorize">15.55</td><td class="colorize">15.64</td><td class="colorize">17.11</td><td class="colorize">15.64</td><td>27,086</td><td>4,496.87</td><th><a href="http://vip.stock.finance.sina.com.cn/portfolio/hqjia.php?symbol=sh603313" target="_blank" title="加入我的自选"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/addto_p.gif" alt="收藏" /></a></th><th><a href="http://guba.sina.com.cn/bar.php?name=sh603313" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr></tbody></table></div>
+
+				<div class="tbl_wrap noborder" style="display:none;" id="cnlt1">读取中...请稍候</div>
+				<div class="tbl_wrap noborder" style="display:none;" id="cnlt2">读取中...请稍候</div>
+				<div class="tbl_wrap noborder" style="display:none;" id="cnlt3">读取中...请稍候</div>
+
+				<div class="tbl_wrap noborder" style="display:none;" id="cnlt4">读取中...请稍候</div>
+				<div class="tbl_wrap noborder" style="display:none;" id="cnlt5">读取中...请稍候</div>
+				<div class="tbl_wrap noborder" style="display:none;" id="cnlt6">读取中...请稍候</div>
+
+			</div>
+			</div><div id="hklt" style="">
+
+			<div class="head">
+				<div class="move"><span>移动模块：</span><a href="javascript:void(0);" class="moveup" id="hklt_up"></a><a href="javascript:void(0);" class="movedown" id="hklt_down"></a></div>
+				<div class="amount"><span>显示</span><div id="hklt_num"><a href="javascript:void(0);" class="active">5</a><a href="javascript:void(0);">10</a><a href="javascript:void(0);">15</a></div><span>条</span></div>
+				<span class="hkdelay" id="hkdelay_index" style="display:none">以下行情延迟15分钟</span>
+				<a class="hkrefresh" id="hkrefresh_index" style="display: block;" href="javascript:RankCtrl.dohkrefresh();"><span class="hkhqtime" id="hkhqtime_index">16:30</span></a>
+				<h3>港股排行</h3>
+
+				<div class="tab_wrap">
+
+					<ul id="hklt_tabs">
+						<li class="active"><a href="javascript:void(0);">正股</a></li>
+						<li><a href="javascript:void(0);">A+H</a></li>
+						<li><a href="javascript:void(0);">窝轮</a></li>
+						<li><a href="javascript:void(0);">ADR</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+
+			<div id="hklt_contents">
+				<div class="tbl_wrap noborder" id="hklt0"><table border="0"><thead><tr><th><a href="javascript:void(0);">代码</a></th><th>名称</th><td class="colorize"><a href="javascript:void(0);">最新价</a></td><td class="colorize"><a href="javascript:void(0);">涨跌额</a></td><td class="colorize sort_up"><a href="javascript:void(0);">涨跌幅</a></td><td class="colorize"><a href="javascript:void(0);">成交价</a></td><td class="colorize"><a href="javascript:void(0);">昨收</a></td><td class="colorize"><a href="javascript:void(0);">今开</a></td><td class="colorize"><a href="javascript:void(0);">最高</a></td><td class="colorize"><a href="javascript:void(0);">最低</a></td><td><a href="javascript:void(0);">成交量/万</a></td><td><a href="javascript:void(0);">成交额/万</a></td><th>股吧</th></tr></thead><tbody><tr class="global_up" style=""><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/08245.html" target="_blank">08245</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/08245.html" target="_blank">安悦国际控股</a></th><td class="colorize">　0.051</td><td class="colorize">+0.021</td><td class="colorize sort_up">+70.000%</td><td class="colorize">0.052</td><td class="colorize">0.030</td><td class="colorize">0.033</td><td class="colorize">0.067</td><td class="colorize">0.032</td><td>2,452.00</td><td>113.36</td><th><a href="http://guba.sina.com.cn/bar.php?name=8245HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00428.html" target="_blank">00428</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00428.html" target="_blank">中国天弓控股</a></th><td class="colorize">　0.790</td><td class="colorize">+0.295</td><td class="colorize sort_up">+59.596%</td><td class="colorize">0.790</td><td class="colorize">0.495</td><td class="colorize">0.540</td><td class="colorize">1.100</td><td class="colorize">0.540</td><td>664.65</td><td>628.46</td><th><a href="http://guba.sina.com.cn/bar.php?name=0428HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/08460.html" target="_blank">08460</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/08460.html" target="_blank">基地锦标集团</a></th><td class="colorize">　1.430</td><td class="colorize">+0.470</td><td class="colorize sort_up">+48.958%</td><td class="colorize">1.440</td><td class="colorize">0.960</td><td class="colorize">0.980</td><td class="colorize">1.440</td><td class="colorize">0.980</td><td>1,995.40</td><td>2,461.13</td><th><a href="http://guba.sina.com.cn/bar.php?name=8460HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00928.html" target="_blank">00928</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00928.html" target="_blank">莲和医疗</a></th><td class="colorize">　0.330</td><td class="colorize">+0.089</td><td class="colorize sort_up">+36.929%</td><td class="colorize">0.330</td><td class="colorize">0.241</td><td class="colorize">0.245</td><td class="colorize">0.330</td><td class="colorize">0.239</td><td>3,711.20</td><td>956.67</td><th><a href="http://guba.sina.com.cn/bar.php?name=0928HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/08450.html" target="_blank">08450</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/08450.html" target="_blank">钜京控股</a></th><td class="colorize">　0.117</td><td class="colorize">+0.029</td><td class="colorize sort_up">+32.955%</td><td class="colorize">0.117</td><td class="colorize">0.088</td><td class="colorize">0.099</td><td class="colorize">0.168</td><td class="colorize">0.099</td><td>3,097.00</td><td>407.25</td><th><a href="http://guba.sina.com.cn/bar.php?name=8450HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr></tbody></table></div>
+
+				<div class="tbl_wrap noborder" style="display:none;" id="hklt1">读取中...请稍候</div>
+
+				<div class="tbl_wrap noborder" style="display:none;" id="hklt2">读取中...请稍候</div>
+				<div class="tbl_wrap noborder" style="display:none;" id="hklt3">读取中...请稍候</div>
+
+			</div>
+			</div><div id="fdlt" style="">
+
+			<div class="head">
+				<div class="move"><span>移动模块：</span><a href="javascript:void(0);" class="moveup" id="fdlt_up"></a><a href="javascript:void(0);" class="nodown" id="fdlt_down"></a></div>
+				<div class="amount"><span>显示</span><div id="fdlt_num"><a href="javascript:void(0);" class="active">5</a><a href="javascript:void(0);">10</a><a href="javascript:void(0);">15</a></div><span>条</span></div>
+				<h3>基金排行</h3>
+
+				<div class="tab_wrap">
+
+					<ul id="fdlt_tabs">
+						<li class="active"><a href="javascript:void(0);">开基</a></li>
+						<li><a href="javascript:void(0);">封基</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="fdlt_contents">
+
+				<div class="tbl_wrap noborder" id="fdlt0"><table border="0"><thead><tr><th><a href="javascript:void(0);">代码</a></th><th>名称</th><td class="colorize"><a href="javascript:void(0);">最新公布净值</a></td><td class="colorize"><a href="javascript:void(0);">累计净值</a></td><td class="colorize"><a href="javascript:void(0);">前单位净值</a></td><td class="colorize"><a href="javascript:void(0);">净值增长率</a></td><td class="sort_up"><a href="javascript:void(0);">公布日期</a></td><td class="colorize"><a href="javascript:void(0);">基金规模</a></td></tr></thead><tbody><tr style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=003880&amp;country=fund" target="_blank">003880</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=003880&amp;country=fund" target="_blank">嘉实定期宝6个月理财债券A</a></th><td class="colorize">0.988</td><td class="colorize">4.231</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="sort_up">2018-09-24</td><td class="colorize">0.505</td></tr><tr style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=003881&amp;country=fund" target="_blank">003881</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=003881&amp;country=fund" target="_blank">嘉实定期宝6个月理财债券B</a></th><td class="colorize">1.040</td><td class="colorize">4.421</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="sort_up">2018-09-24</td><td class="colorize">36.880</td></tr><tr style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=070035&amp;country=fund" target="_blank">070035</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=070035&amp;country=fund" target="_blank">嘉实理财宝7天债券A</a></th><td class="colorize">0.616</td><td class="colorize">2.382</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="sort_up">2018-09-24</td><td class="colorize">0.276</td></tr><tr style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=070036&amp;country=fund" target="_blank">070036</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=070036&amp;country=fund" target="_blank">嘉实理财宝7天债券B</a></th><td class="colorize">0.695</td><td class="colorize">2.672</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="sort_up">2018-09-24</td><td class="colorize">202.447</td></tr><tr style=""><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=530014&amp;country=fund" target="_blank">530014</a></th><th><a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=530014&amp;country=fund" target="_blank">建信双周理财A</a></th><td class="colorize">0.872</td><td class="colorize">3.370</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="sort_up">2018-09-24</td><td class="colorize">9.936</td></tr></tbody></table></div>
+
+				<div class="tbl_wrap noborder" style="display:none;" id="fdlt1">读取中...请稍候</div>
+
+			</div>
+			</div></div>
+		<!-- 排行end -->
+
+		<div>
+			<iframe width="750" height="90" frameborder="0" scrolling="no" src="http://finance.sina.com.cn/iframe/244/2007/0330/25.html" marginwidth="0" marginheight="0" style="margin:20px 0 0 30px;"></iframe>
+		</div>
+
+	</div>
+
+
+
+
+
+	<div class="list_wrap" id="list_wrap" style="display: block;">
+
+		<div class="head">
+			<div class="nav"><a href="javascript:void(0);" id="to_index">行情中心首页</a> &gt; <span id="list_nav_wrap">香港股市 &gt; 全部港股</span></div>
+				<a class="hkrefresh" id="hkrefresh_page" style="display:none" href="javascript:TreeMenu.dohkrefresh();"><span class="hkhqtime" id="hkhqtime_page">----- --:--</span></a>
+			<div class="amount" id="amount_page" style="display: block;"><span>每页显示</span><div id="list_amount_ctrl"><a href="javascript:void(0);" class="">20</a><a href="javascript:void(0);" class="active">40</a><a href="javascript:void(0);" class="">80</a></div><span>条</span></div>
+				<span class="hkdelay" id="hkdelay" style="display: block;">以下行情延迟15分钟</span>
+				<span id="notice_us" class="notice_us" style="display: none; color: rgb(136, 136, 136);">交易时段</span>
+		</div>
+
+		<div class="nav2" id="list_nav" style="display: none;">
+			<div class="pages" style="margin:0px; width:200px; float:right;" id="list_pages_top">
+				<form action="javascript:void(0);" id="list_page_form">
+					<div class="list_page_btn" id="list_page_btn"><div id="list_page_btn_0" class="list_page_item"></div><div id="list_page_btn_1" class="list_page_item item_page_combo"><input type="text" id="list_page_text" class="list_page_text" value="" autocomplete="off" /><a class="list_page_text_drop" id="list_page_text_drop" href="javascript:list_page_show_list('list_page_text');" onfocus="this.blur()"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/transparent.gif" width="20px" height="25px" /></a></div><div id="list_page_btn_2" class="list_page_item"></div></div>
+					<input type="submit" style="display:none" />
+				</form>
+			</div>
+			<div class="nav2_top_div_all_news" id="nav2_top_div_all_news" data-sudaclick="mkt_zixunsudi" style="display: none;">
+				<a target="_blank" id="nav_top_link_all_news1" style="color:red;" href=""></a>
+				<div id="nav2_top_news_border" class="nav2_top_news_border"></div>
+				<a target="_blank" id="nav_top_link_all_news" href="http://stock.finance.sina.com.cn/cnstock/view/stock_news.php?ins=qbgg_hk">全部资讯 &gt;&gt;</a>
+			</div>
+			<div id="nav2_top_news" style="line-height: 30px; height: 30px; overflow: hidden; width: 410px; zoom: 1;">
+				<div id="nav2_top_news_title" style="width: 72px; float: left; text-align: right; overflow: hidden; padding-left: 10px; line-height: 30px; color: #666;">
+					行业资讯速递
+				</div>
+				<div id="nav2_top_news_title_colon" style="width: 12px; float: left; text-align: left; overflow: hidden; padding-left: 0px; line-height: 30px; color: rgb(102, 102, 102); display: none;">
+					：
+				</div>
+				<div id="nav2_top_news_list" class="nav2_top_news_list" style="display: none;">
+					<div id="nav2_top_news_scroller" class="nav2_top_news_scroller" style="margin-left: 0px;"></div>
+				</div>
+			</div>
+			<div class="list_page_drop" style="display: none; left: 0px; top: 20px;" id="list_page_drop">
+				<a class="list_page_drop_up list_page_drop_arrow" id="list_page_drop_up" href="javascript:list_page_scroll(-10);"></a>
+				<ul class="list_page_drop_num" id="list_page_drop_num"></ul>
+				<a class="list_page_drop_down list_page_drop_arrow" id="list_page_drop_down" href="javascript:list_page_scroll(10);"></a>
+			</div>
+
+		</div>
+
+ 		<div class="nav2" id="list_nav2">
+			<div class="pages" style="margin:0px; width:400px; float:right;" id="list_pages_top2"><span class="pagedisabled">上一页</span><span class="pagecurr pagedisabled">1</span><a class="" href="javascript:void(0);">2</a><a class="" href="javascript:void(0);">3</a>...<a class="" href="javascript:void(0);">63</a><a class="" href="javascript:void(0);">下一页</a></div>
+			<span style="line-height:30px; padding-left:10px; color:#666;">注：点击每列标题可排序。例如：点击"最新价"可以按价格排序</span>
+		</div>
+
+		<div class="tbl_wrap" id="tbl_wrap" style="display: block;"><table border="0"><thead><tr><th class="sort_down"><a href="javascript:void(0);">代码</a></th><th>名称</th><td class="colorize"><a href="javascript:void(0);">最新价</a></td><td class="colorize"><a href="javascript:void(0);">涨跌额</a></td><td class="colorize"><a href="javascript:void(0);">涨跌幅</a></td><td class="colorize"><a href="javascript:void(0);">昨收</a></td><td class="colorize"><a href="javascript:void(0);">今开</a></td><td class="colorize"><a href="javascript:void(0);">最高</a></td><td class="colorize"><a href="javascript:void(0);">最低</a></td><td><a href="javascript:void(0);">成交量/万</a></td><td><a href="javascript:void(0);">成交额/万</a></td><th>股吧</th></tr></thead><tbody><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00001.html" target="_blank">00001</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00001.html" target="_blank">长和</a></th><td class="colorize">　89.900</td><td class="colorize">-0.700</td><td class="colorize">-0.773%</td><td class="colorize">90.600</td><td class="colorize">90.000</td><td class="colorize">91.450</td><td class="colorize">89.750</td><td>230.84</td><td>20,848.76</td><th><a href="http://guba.sina.com.cn/bar.php?name=0001HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00002.html" target="_blank">00002</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00002.html" target="_blank">中电控股</a></th><td class="colorize">　91.650</td><td class="colorize">-0.700</td><td class="colorize">-0.758%</td><td class="colorize">92.350</td><td class="colorize">92.950</td><td class="colorize">93.400</td><td class="colorize">91.650</td><td>247.15</td><td>22,834.08</td><th><a href="http://guba.sina.com.cn/bar.php?name=0002HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00003.html" target="_blank">00003</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00003.html" target="_blank">香港中华煤气</a></th><td class="colorize">　15.540</td><td class="colorize">-0.040</td><td class="colorize">-0.257%</td><td class="colorize">15.580</td><td class="colorize">15.580</td><td class="colorize">15.700</td><td class="colorize">15.520</td><td>1,068.43</td><td>16,628.18</td><th><a href="http://guba.sina.com.cn/bar.php?name=0003HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00004.html" target="_blank">00004</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00004.html" target="_blank">九龙仓集团</a></th><td class="colorize">　21.900</td><td class="colorize">-0.400</td><td class="colorize">-1.794%</td><td class="colorize">22.300</td><td class="colorize">22.250</td><td class="colorize">22.300</td><td class="colorize">21.800</td><td>136.84</td><td>3,015.16</td><th><a href="http://guba.sina.com.cn/bar.php?name=0004HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00005.html" target="_blank">00005</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00005.html" target="_blank">汇丰控股</a></th><td class="colorize">　68.950</td><td class="colorize">-0.800</td><td class="colorize">-1.147%</td><td class="colorize">69.750</td><td class="colorize">68.950</td><td class="colorize">69.500</td><td class="colorize">68.850</td><td>1,248.82</td><td>86,213.38</td><th><a href="http://guba.sina.com.cn/bar.php?name=0005HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00006.html" target="_blank">00006</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00006.html" target="_blank">电能实业</a></th><td class="colorize">　55.000</td><td class="colorize">-0.250</td><td class="colorize">-0.452%</td><td class="colorize">55.250</td><td class="colorize">55.000</td><td class="colorize">55.450</td><td class="colorize">54.800</td><td>265.51</td><td>14,639.21</td><th><a href="http://guba.sina.com.cn/bar.php?name=0006HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00007.html" target="_blank">00007</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00007.html" target="_blank">香港金融集团</a></th><td class="colorize">　1.080</td><td class="colorize">+0.010</td><td class="colorize">+0.935%</td><td class="colorize">1.070</td><td class="colorize">1.050</td><td class="colorize">1.080</td><td class="colorize">0.990</td><td>370.80</td><td>383.70</td><th><a href="http://guba.sina.com.cn/bar.php?name=0007HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00008.html" target="_blank">00008</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00008.html" target="_blank">电讯盈科</a></th><td class="colorize">　4.410</td><td class="colorize">+0.040</td><td class="colorize">+0.915%</td><td class="colorize">4.370</td><td class="colorize">4.410</td><td class="colorize">4.570</td><td class="colorize">4.360</td><td>1,190.10</td><td>5,273.87</td><th><a href="http://guba.sina.com.cn/bar.php?name=0008HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00009.html" target="_blank">00009</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00009.html" target="_blank">九号运通</a></th><td class="colorize">　0.265</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">0.265</td><td class="colorize">0.260</td><td class="colorize">0.265</td><td class="colorize">0.260</td><td>14.40</td><td>3.77</td><th><a href="http://guba.sina.com.cn/bar.php?name=0009HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00010.html" target="_blank">00010</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00010.html" target="_blank">恒隆集团</a></th><td class="colorize">　20.500</td><td class="colorize">-0.200</td><td class="colorize">-0.966%</td><td class="colorize">20.700</td><td class="colorize">20.950</td><td class="colorize">20.950</td><td class="colorize">20.400</td><td>57.71</td><td>1,186.81</td><th><a href="http://guba.sina.com.cn/bar.php?name=0010HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00011.html" target="_blank">00011</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00011.html" target="_blank">恒生银行</a></th><td class="colorize">　206.600</td><td class="colorize">-3.400</td><td class="colorize">-1.619%</td><td class="colorize">210.000</td><td class="colorize">209.200</td><td class="colorize">210.200</td><td class="colorize">206.400</td><td>73.30</td><td>15,201.08</td><th><a href="http://guba.sina.com.cn/bar.php?name=0011HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00012.html" target="_blank">00012</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00012.html" target="_blank">恒基地产</a></th><td class="colorize">　39.600</td><td class="colorize">-0.500</td><td class="colorize">-1.247%</td><td class="colorize">40.100</td><td class="colorize">40.200</td><td class="colorize">40.200</td><td class="colorize">39.500</td><td>257.45</td><td>10,219.37</td><th><a href="http://guba.sina.com.cn/bar.php?name=0012HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00013.html" target="_blank">00013</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00013.html" target="_blank">和记黄埔</a></th><td class="colorize">　115.000</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">115.000</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td>0.00</td><td>0.00</td><th><a href="http://guba.sina.com.cn/bar.php?name=0013HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00014.html" target="_blank">00014</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00014.html" target="_blank">希慎兴业</a></th><td class="colorize">　39.550</td><td class="colorize">-1.900</td><td class="colorize">-4.584%</td><td class="colorize">41.450</td><td class="colorize">40.950</td><td class="colorize">40.950</td><td class="colorize">39.500</td><td>77.55</td><td>3,106.68</td><th><a href="http://guba.sina.com.cn/bar.php?name=0014HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00015.html" target="_blank">00015</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00015.html" target="_blank">盈信控股</a></th><td class="colorize">　0.680</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">0.680</td><td class="colorize">0.680</td><td class="colorize">0.700</td><td class="colorize">0.660</td><td>32.60</td><td>21.91</td><th><a href="http://guba.sina.com.cn/bar.php?name=0015HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00016.html" target="_blank">00016</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00016.html" target="_blank">新鸿基地产</a></th><td class="colorize">　116.000</td><td class="colorize">-0.900</td><td class="colorize">-0.770%</td><td class="colorize">116.900</td><td class="colorize">116.000</td><td class="colorize">116.900</td><td class="colorize">115.500</td><td>433.01</td><td>50,297.05</td><th><a href="http://guba.sina.com.cn/bar.php?name=0016HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00017.html" target="_blank">00017</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00017.html" target="_blank">新世界发展</a></th><td class="colorize">　10.740</td><td class="colorize">-0.220</td><td class="colorize">-2.007%</td><td class="colorize">10.960</td><td class="colorize">10.940</td><td class="colorize">11.100</td><td class="colorize">10.700</td><td>1,626.99</td><td>17,562.30</td><th><a href="http://guba.sina.com.cn/bar.php?name=0017HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00018.html" target="_blank">00018</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00018.html" target="_blank">东方报业集团</a></th><td class="colorize">　0.880</td><td class="colorize">-0.010</td><td class="colorize">-1.124%</td><td class="colorize">0.890</td><td class="colorize">0.880</td><td class="colorize">0.880</td><td class="colorize">0.870</td><td>19.00</td><td>16.66</td><th><a href="http://guba.sina.com.cn/bar.php?name=0018HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00019.html" target="_blank">00019</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00019.html" target="_blank">太古股份公司Ａ</a></th><td class="colorize">　86.250</td><td class="colorize">-2.050</td><td class="colorize">-2.322%</td><td class="colorize">88.300</td><td class="colorize">89.000</td><td class="colorize">89.050</td><td class="colorize">86.050</td><td>73.96</td><td>6,408.61</td><th><a href="http://guba.sina.com.cn/bar.php?name=0019HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00020.html" target="_blank">00020</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00020.html" target="_blank">会德丰</a></th><td class="colorize">　49.050</td><td class="colorize">-0.900</td><td class="colorize">-1.802%</td><td class="colorize">49.950</td><td class="colorize">49.500</td><td class="colorize">49.500</td><td class="colorize">48.500</td><td>76.42</td><td>3,739.17</td><th><a href="http://guba.sina.com.cn/bar.php?name=0020HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00021.html" target="_blank">00021</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00021.html" target="_blank">大中华地产控股</a></th><td class="colorize">　0.185</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">0.185</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td>0.00</td><td>0.00</td><th><a href="http://guba.sina.com.cn/bar.php?name=0021HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00022.html" target="_blank">00022</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00022.html" target="_blank">茂盛控股</a></th><td class="colorize">　0.248</td><td class="colorize">-0.007</td><td class="colorize">-2.745%</td><td class="colorize">0.255</td><td class="colorize">0.250</td><td class="colorize">0.250</td><td class="colorize">0.248</td><td>120.00</td><td>29.96</td><th><a href="http://guba.sina.com.cn/bar.php?name=0022HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00023.html" target="_blank">00023</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00023.html" target="_blank">东亚银行</a></th><td class="colorize">　29.000</td><td class="colorize">-0.850</td><td class="colorize">-2.848%</td><td class="colorize">29.850</td><td class="colorize">29.450</td><td class="colorize">29.800</td><td class="colorize">29.000</td><td>114.96</td><td>3,366.97</td><th><a href="http://guba.sina.com.cn/bar.php?name=0023HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00024.html" target="_blank">00024</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00024.html" target="_blank">宝威控股</a></th><td class="colorize">　0.203</td><td class="colorize">-0.001</td><td class="colorize">-0.490%</td><td class="colorize">0.204</td><td class="colorize">0.207</td><td class="colorize">0.208</td><td class="colorize">0.201</td><td>630.20</td><td>128.38</td><th><a href="http://guba.sina.com.cn/bar.php?name=0024HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00025.html" target="_blank">00025</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00025.html" target="_blank">CHEVALIER INT'L</a></th><td class="colorize">　11.260</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">11.260</td><td class="colorize">11.260</td><td class="colorize">11.260</td><td class="colorize">11.260</td><td>1.20</td><td>13.51</td><th><a href="http://guba.sina.com.cn/bar.php?name=0025HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00026.html" target="_blank">00026</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00026.html" target="_blank">中华汽车</a></th><td class="colorize">　96.000</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">96.000</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td>0.00</td><td>0.00</td><th><a href="http://guba.sina.com.cn/bar.php?name=0026HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00027.html" target="_blank">00027</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00027.html" target="_blank">银河娱乐</a></th><td class="colorize">　52.700</td><td class="colorize">-2.150</td><td class="colorize">-3.920%</td><td class="colorize">54.850</td><td class="colorize">54.000</td><td class="colorize">54.050</td><td class="colorize">52.400</td><td>2,366.73</td><td>124,935.97</td><th><a href="http://guba.sina.com.cn/bar.php?name=0027HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00028.html" target="_blank">00028</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00028.html" target="_blank">天安</a></th><td class="colorize">　4.130</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">4.130</td><td class="colorize">4.210</td><td class="colorize">4.210</td><td class="colorize">4.120</td><td>7.50</td><td>31.02</td><th><a href="http://guba.sina.com.cn/bar.php?name=0028HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00029.html" target="_blank">00029</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00029.html" target="_blank">达力集团</a></th><td class="colorize">　6.310</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">6.310</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td>0.00</td><td>0.00</td><th><a href="http://guba.sina.com.cn/bar.php?name=0029HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00030.html" target="_blank">00030</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00030.html" target="_blank">万隆控股集团</a></th><td class="colorize">　0.189</td><td class="colorize">+0.008</td><td class="colorize">+4.420%</td><td class="colorize">0.181</td><td class="colorize">0.185</td><td class="colorize">0.189</td><td class="colorize">0.179</td><td>131.60</td><td>24.24</td><th><a href="http://guba.sina.com.cn/bar.php?name=0030HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00031.html" target="_blank">00031</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00031.html" target="_blank">航天控股</a></th><td class="colorize">　0.610</td><td class="colorize">-0.010</td><td class="colorize">-1.613%</td><td class="colorize">0.620</td><td class="colorize">0.610</td><td class="colorize">0.620</td><td class="colorize">0.610</td><td>37.80</td><td>23.23</td><th><a href="http://guba.sina.com.cn/bar.php?name=0031HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00032.html" target="_blank">00032</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00032.html" target="_blank">港通控股</a></th><td class="colorize">　13.000</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">13.000</td><td class="colorize">13.020</td><td class="colorize">13.100</td><td class="colorize">13.000</td><td>13.23</td><td>171.93</td><th><a href="http://guba.sina.com.cn/bar.php?name=0032HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00033.html" target="_blank">00033</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00033.html" target="_blank">亚投金融集团</a></th><td class="colorize">　0.082</td><td class="colorize">+0.003</td><td class="colorize">+3.797%</td><td class="colorize">0.079</td><td class="colorize">0.088</td><td class="colorize">0.088</td><td class="colorize">0.081</td><td>317.00</td><td>26.10</td><th><a href="http://guba.sina.com.cn/bar.php?name=0033HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00034.html" target="_blank">00034</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00034.html" target="_blank">九龙建业</a></th><td class="colorize">　8.480</td><td class="colorize">+0.020</td><td class="colorize">+0.236%</td><td class="colorize">8.460</td><td class="colorize">8.410</td><td class="colorize">8.480</td><td class="colorize">8.410</td><td>5.70</td><td>48.14</td><th><a href="http://guba.sina.com.cn/bar.php?name=0034HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_down" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00035.html" target="_blank">00035</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00035.html" target="_blank">远东发展</a></th><td class="colorize">　4.110</td><td class="colorize">-0.070</td><td class="colorize">-1.675%</td><td class="colorize">4.180</td><td class="colorize">4.100</td><td class="colorize">4.150</td><td class="colorize">4.080</td><td>17.98</td><td>74.02</td><th><a href="http://guba.sina.com.cn/bar.php?name=0035HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00036.html" target="_blank">00036</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00036.html" target="_blank">远东控股国际</a></th><td class="colorize">　0.495</td><td class="colorize">+0.005</td><td class="colorize">+1.020%</td><td class="colorize">0.490</td><td class="colorize">0.495</td><td class="colorize">0.500</td><td class="colorize">0.490</td><td>11.40</td><td>5.66</td><th><a href="http://guba.sina.com.cn/bar.php?name=0036HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00037.html" target="_blank">00037</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00037.html" target="_blank">远东酒店实业</a></th><td class="colorize">　0.315</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">0.315</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td class="colorize">0.000</td><td>0.00</td><td>0.00</td><th><a href="http://guba.sina.com.cn/bar.php?name=0037HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00038.html" target="_blank">00038</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00038.html" target="_blank">第一拖拉机股份</a></th><td class="colorize">　2.230</td><td class="colorize">+0.070</td><td class="colorize">+3.241%</td><td class="colorize">2.160</td><td class="colorize">2.150</td><td class="colorize">2.230</td><td class="colorize">2.130</td><td>26.00</td><td>56.23</td><th><a href="http://guba.sina.com.cn/bar.php?name=0038HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr class="global_up" style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00039.html" target="_blank">00039</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00039.html" target="_blank">中国北大荒</a></th><td class="colorize">　0.250</td><td class="colorize">+0.001</td><td class="colorize">+0.402%</td><td class="colorize">0.249</td><td class="colorize">0.255</td><td class="colorize">0.255</td><td class="colorize">0.245</td><td>62.80</td><td>15.57</td><th><a href="http://guba.sina.com.cn/bar.php?name=0039HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr><tr style=""><th class="sort_down"><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00040.html" target="_blank">00040</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/00040.html" target="_blank">金山工业</a></th><td class="colorize">　0.770</td><td class="colorize">0.000</td><td class="colorize">0.000%</td><td class="colorize">0.770</td><td class="colorize">0.770</td><td class="colorize">0.770</td><td class="colorize">0.770</td><td>2.50</td><td>1.93</td><th><a href="http://guba.sina.com.cn/bar.php?name=0040HK" target="_blank" title="进入股票吧"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/linkto_ba.gif" alt="股吧" /></a></th></tr></tbody></table><div class="pages"><span class="pagedisabled">上一页</span><span class="pagecurr pagedisabled">1</span><a class="" href="javascript:void(0);">2</a><a class="" href="javascript:void(0);">3</a>...<a class="" href="javascript:void(0);">63</a><a class="" href="javascript:void(0);">下一页</a></div></div>
+		<div class="tbl_page_bottom" id="tbl_page_bottom" style="display: none;">
+			<div class="pages" style="margin:0px; width:200px; float:right;" id="list_pages_bottom">
+				<form action="javascript:void(0);" id="list_page_form2">
+					<div class="list_page_btn" id="list_page_btn2">
+						<div id="list_page_btn2_0" class="list_page_item"></div><div id="list_page_btn_1" class="list_page_item item_page_combo"><input type="text" id="list_page_text2" class="list_page_text" value="" autocomplete="off" /><a class="list_page_text_drop" id="list_page_text_drop2" href="javascript:list_page_show_list('list_page_text2');" onfocus="this.blur()"><img src="http://www.sinaimg.cn/cj/subject/2009/0618/images/transparent.gif" width="17px" height="15px" /></a></div><div id="list_page_btn2_2" class="list_page_item"></div>
+					</div>
+					<input type="submit" style="display:none" />
+				</form>
+			</div>
+		</div>
+		<div class="iframe_wrap" id="iframe_wrap" style="display: none;"></div>
+		<div>
+			<iframe width="750" height="90" frameborder="0" scrolling="no" src="http://finance.sina.com.cn/iframe/244/2009/1123/35.html" marginwidth="0" marginheight="0" style="margin:20px 0 0 30px;"></iframe>
+		</div>
+
+	</div>
+
+
+	<div class="clear"></div>
+
+</div>
 
 <style type="text/css">
-#footer{width:950px; text-align:center; line-height:21px; font-size:12px;margin-top:20px;color:#333;margin-left:auto;margin-right:auto;}
-#footer a:link{color:#000099}
-#footer a:visited{color:#800080}
-#footer a:hover{color:#ff0000;text-decoration:underline;}
-#footer a:active {color:#0100A3; text-decoration:none;}
+    .footer{text-align:center; border-top:solid 1px #e1e1e1; padding:20px 0; margin-top:30px; color: #333;}
+    .footer a:hover, .footer a:active, .footer a:focus { color: #3b67cb; text-decoration: none;  }
 </style>
 <!-- SUDA_CODE_START -->
 <script type="text/javascript" src="http://www.sinaimg.cn/unipro/pub/suda_s_v851c.js"></script>
-<script type="text/javascript" >
-_S_pSt(_S_PID_);
+<script type="text/javascript">
+    _S_pSt(_S_PID_);
 </script>
 <!-- SUDA_CODE_END -->
-
-<div id="footer">
-客户服务热线：4006900000　　
-欢迎批评指正<br>
-
-<a target="_blank" href="http://tech.sina.com.cn/focus/sinahelp.shtml">常见问题解答</a>
-<a target="_blank" href="http://net.china.cn/chinese/index.htm">互联网违法和不良信息举报</a>　
-<a target="_blank" href="https://gu.sina.cn/pc/feedback/">新浪财经意见反馈留言板</a>
-<br><br>
-<a href="http://corp.sina.com.cn/chn/">新浪简介</a> | <a href="http://corp.sina.com.cn/eng/">About Sina</a> | <a href="http://emarketing.sina.com.cn/">广告服务</a> | <a href="http://www.sina.com.cn/contactus.html">联系我们</a> | <a href="http://corp.sina.com.cn/chn/sina_job.html">招聘信息</a> | <a href="http://www.sina.com.cn/intro/lawfirm.shtml">网站律师</a> | <a href="http://english.sina.com">SINA English</a> | <a href="http://members.sina.com.cn/apply/">通行证注册</a> | <a href="http://help.sina.com.cn/">产品答疑</a><br><br>Copyright &copy; 1996-2018 SINA Corporation, All Rights Reserved<br><br>新浪公司　<a target="_blank" href="http://www.sina.com.cn/intro/copyright.shtml">版权所有</a>
- <br><br><span style="color:#aaa;">新浪财经免费提供股票、基金、债券、外汇等行情数据以及其他资料均来自相关合作方，仅作为用户获取信息之目的，并不构成投资建议。<br/>新浪财经以及其合作机构不为本页面提供信息的错误、残缺、延迟或因依靠此信息所采取的任何行动负责。市场有风险，投资需谨慎。</span>
+<!--footer 2017 -->
+<div class="footer">
+    　客户服务热线：4006900000　欢迎批评指正<br />
+    <a target="_blank" href="http://tech.sina.com.cn/focus/sinahelp.shtml">常见问题解答</a>
+    <a target="_blank" href="http://net.china.cn/chinese/index.htm">互联网违法和不良信息举报</a>
+    <a target="_blank" href="https://gu.sina.cn/pc/feedback/">新浪财经意见反馈留言板</a>
+    <br /><br /><a href="http://corp.sina.com.cn/chn/">新浪简介</a> | <a href="http://corp.sina.com.cn/eng/">About Sina</a> | <a href="http://emarketing.sina.com.cn/">广告服务</a> | <a href="http://www.sina.com.cn/contactus.html">联系我们</a> | <a href="http://corp.sina.com.cn/chn/sina_job.html">招聘信息</a> | <a href="http://www.sina.com.cn/intro/lawfirm.shtml">网站律师</a> | <a href="http://english.sina.com">SINA English</a> | <a href="http://members.sina.com.cn/apply/">通行证注册</a> | <a href="http://help.sina.com.cn/">产品答疑</a><br /><br />Copyright © 1996-2018 SINA Corporation, All Rights Reserved<br /><br />新浪公司　<a target="_blank" href="http://www.sina.com.cn/intro/copyright.shtml">版权所有</a>
 </div>
 
-  <!-- end footer -->
-</div>
 
-<!-- start dmp -->
+
+
 <script type="text/javascript">
-    (function(d, s, id) {
-        var n = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        s = d.createElement(s);
-        s.id = id;
-        s.setAttribute('charset', 'utf-8');
-        s.src = '//d' + Math.floor(0 + Math.random() * (8 - 0 + 1)) + '.sina.com.cn/litong/zhitou/sinaads/src/spec/sinaads_ck.js';
-        n.parentNode.insertBefore(s, n);
-    })(document, 'script', 'sinaads-ck-script');
+//&lt;![CDATA[
+loadsrv();
+//main() ;
+//]]&gt;
 </script>
-<!-- end dmp -->
+<script type="text/javascript" src="http://www.sinaimg.cn/unipro/pub/suda_m_v629.js"></script>
+<script type="text/javascript">suds_init(1523,20.00,915,2);</script>
+<script type="text/javascript" src="http://hq.sinajs.cn/?format=json&amp;func=window.StandardBJTime=hq_json_sys_time;if%28typeof%28StandardBJTime_Callback%29==%27function%27%29StandardBJTime_Callback%28%29;&amp;list=sys_time"></script>
+<script type="text/javascript" src="http://finance.sina.com.cn/globaltimezone.js"></script>
+<script type="text/javascript" src="http://finance.sina.com.cn/basejs/MarketTS.js "></script>
+<script type="text/javascript">
+(new MarketTS()).bind("stock",'nsq',function () { },function (__stringStatus,__allStatus)
+{
+	document.getElementById("notice_us").innerHTML = __stringStatus;
+	if(__allStatus[0] == 2)
+	{
+	document.getElementById("notice_us").style.color = 'red';
+	}
+	else
+	{
+	document.getElementById("notice_us").style.color = '#888';
+	}
+});
+</script>
+<script charset="UTF-8" src="//n.sinaimg.cn/finance/hqcenter_right_ad/hqcenter_finapp_ad.js?ts=2.3"></script>
+<script charset="utf-8" src="http://n.sinaimg.cn/finance/xcapp/js/hqCenter_xcapp.js?ts=2.3"></script>
 
-</body>
-</html>
-
+</div><div class="finapp_ad_box" id="hq_finapp_ad" suda-uatrack="key=pc_hq_finapp&amp;value=right"><p class="text">股票代码</p><p class="msg">SH601318</p><p class="text">资金流入</p><p class="msg">77771.07万元</p></div></body></html>
 
 Process finished with exit code 0

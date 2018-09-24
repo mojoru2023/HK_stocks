@@ -1,63 +1,3 @@
-import re
-from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import requests
-import urllib.request
-import time
-import pymysql
-from multiprocessing import Pool
-proxies = { "https": "https://1.199.194.227"}
-
-headers = {'User-Agent':'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB7.0'}
-def get_one_page1(url):
-    try:
-        response = requests.get(url,proxies=proxies,headers=headers)
-        if response.status_code == 200:
-            return response.text
-        else:
-            get_one_page()
-    except HTTPError :
-        pass
-
-
-
-start_url = 'http://vip.stock.finance.sina.com.cn/mkt/#qbgg_hk'
-
-str_list = []
-
-driver = webdriver.Firefox()
-wait = WebDriverWait(driver, 10)
-
-def start_page():
-
-    try:
-        driver.get(start_url)
-        time.sleep(3)
-        get_info()
-
-    except TimeoutException:
-        return start_page()
-
-
-def next_page():
-    pageNumbers = [6, 7, 7, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
-                   9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 7, 6]
-    for pageNumber in iter(pageNumbers):
-        submit = wait.until(
-            EC.element_to_be_clickable((By.,'#tbl_wrap > div > a:nth-child(%s)'% pageNumber)))
-        submit.click()
-        time.sleep(3)
-        driver.implicitly_wait(6)
-        html = driver.page_source
-        patt = re.compile(
-            '<a href="http://stock.finance.sina.com.cn/hkstock/quotes/.*?.html" target="_blank">(.*?)</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/.*?.html" target="_blank">',
-            re.S)
-        items = re.findall(patt, html)
-        for item in items:
-
 
 
 # 逻辑顺序：第一页，解析代码和页数，送给翻页的页数，解析第二页 解析代码和页数
@@ -68,11 +8,7 @@ def next_page():
 # 4.翻页操作的
 # 或者55也而已，直接把要翻页的页码通过测算得到一个列表，后面直接遍历这个礼拜即可！
 # 陷阱挺深，逐渐增加了好几次，到了一定程度停止下来，后面在逐渐下降！手动可以处理
-#
-# pageNumbers=[6,7,7,8,9,9,9,9,9,9,9,8,7,6]  中间再插入41个9
 
-pageNumbers =[6, 7, 7, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 7, 6]
-需要除去第一页
 
 # js小陷阱用点击下一页给破掉了！
 # body > div.con > div > div.page > a.next
@@ -82,68 +18,112 @@ pageNumbers =[6, 7, 7, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 
 # 翻页小陷阱，定位不准xpath ,css定位都会失效 ,一个思路就统计页码标签的个数，统计出和之后赋值给# //*[@id="tbl_wrap"]/div/a[7] b
 
 
-big_list = []
+# -*- coding:utf8 -*-
 
-# //*[@id="tbl_wrap"]/div/a[4]
-# //*[@id="tbl_wrap"]/div/a[6]
-# //*[@id="tbl_wrap"]/div/a[6]
-# //*[@id="tbl_wrap"]/div/a[7]
-def get_info():
-    driver.implicitly_wait(6)
-    # wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'body > div.con > div > script:nth-child(2)')))
+# 写个小脚本就搞定了！
+import re
+
+import pymysql
+
+import time
+from requests.exceptions import ConnectionError
+from selenium import webdriver
+from lxml import etree
+driver = webdriver.Chrome()
+
+
+#请求
+
+def get_first_page():
+    url = 'http://vip.stock.finance.sina.com.cn/mkt/#qbgg_hk'
+    # driver = webdriver.PhantomJS(service_args=SERVICE_ARGS)
+    driver.set_window_size(1200, 1200)  # 设置窗口大小
+    driver.get(url)
+    # time.sleep(3)
     html = driver.page_source
-    pageNumbers = get_pageNumbers(html)
-    patt = re.compile('<a href="http://stock.finance.sina.com.cn/hkstock/quotes/.*?.html" target="_blank">(.*?)</a></th><th><a href="http://stock.finance.sina.com.cn/hkstock/quotes/.*?.html" target="_blank">',re.S)
-    items = re.findall(patt,html)
-    for item in items:
+    # time.sleep(3)
+    return html
 
 
-        # big_list.append(item)
-        # for ite in enumerate(big_list):
-        #     print(ite)
+# 把首页和翻页处理？
+
+def next_page():
+    for i in range(1,64):  # selenium 循环翻页成功！
+        driver.find_element_by_xpath('//*[@id="tbl_wrap"]/div/a[last()]').click()
+        time.sleep(3)
+        # html = driver.page_source
+        # return html
+
+connection = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='123456',
+                             db='hk_stock',
+                             charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+cursor = connection.cursor()
+
+
+# 用遍历打开网页59次来处理
+
+    # print(html)  #正则还是有问题，选择了一个动态变动的颜色标记是不好的 最近浏览不是每次都有的！所以用数字的颜色取判断吧
+
+def parse_html(html):  # 正则专门有反爬虫的布局设置，不适合爬取表格化数据！
+    selector = etree.HTML(html)
+    code = selector.xpath('//*[@id="tbl_wrap"]/table/tbody/tr/th[1]/a/text()')
+    name = selector.xpath('//*[@id="tbl_wrap"]/table/tbody/tr/th[2]/a/text()')
+    table = []
+    
+    # cursor.executemany('insert into hk_stock (code,name) values (%s,%s)', (str(code),str(name)))
+    # connection.commit()
+    # connection.close()
+    # print('向MySQL中添加数据成功！')
 
 
 
-def get_pageNumbers(html):
-
-    return pageNUmbers
 
 
-    # patt = re.compile('data-id="(.*?)"', re.S)
-    # items = re.findall(patt, html)
-    # for ite1 in items:
-    #     str_list.append(ite1)
-    # for ite2 in iter(str_list):
-    #     url = url_follow + ite2
-    #     big_list.append(url)
-
-        # for ite in iter(big_list):
-        #     html = get_one_page(ite)
-        #     parse_one_pic(html)
 
 
+
+    # for item in items:
+    #     print(item)
+
+html = get_first_page()
+parse_html(html)
+
+
+
+
+#存储到MySQL中
 
 def insertDB(content):
-    connection = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='123456', db='hk_stocks',
+    connection = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='123456', db='hk_stock',
                                  charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     try:
-        cursor.executemany('insert into hk_financials (Dates,coding,before_profits,after_profits) values (%s,%s,%s,%s)', content)
+        cursor.executemany('insert into hk_stock (link) values (%s)', content)
         connection.commit()
         connection.close()
         print('向MySQL中添加数据成功！')
-    except TypeError :
+    except StopIteration :
         pass
 
+# if __name__ == '__main__':
+#         html = get_first_page()
+#         content = parse_html(html)
+#         insertDB(content)
+#         while True:
+#             html = next_page()
+#             content = parse_html(html)
+#             insertDB(content)
+        # print(offset)
 
 
 
-#翻页解析搞定！
-if __name__ == '__main__':
-    start_page()
-    for i in range(2, 55):
-        next_page(i)
 
+
+# create table hk_stock(
+# id int not null primary key auto_increment,
+# code varchar(12),
+# name varchar(12)
+# ) engine=InnoDB  charset=utf8;
 
 # 传入url太快了，考虑分成两部分完成：1.先存到数据库中或其他容器中（数据结构不行）
 #  2. 再从数据库中逐个调取进行爬取   3. 中间过渡的数据库是用内存型（redis) 还是一般存储型的？
