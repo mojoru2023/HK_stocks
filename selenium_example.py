@@ -29,6 +29,7 @@ import time
 from requests.exceptions import ConnectionError
 from selenium import webdriver
 from lxml import etree
+import datetime
 driver = webdriver.Chrome()
 
 
@@ -48,16 +49,13 @@ def get_first_page():
 # 把首页和翻页处理？
 
 def next_page():
-    for i in range(1,64):  # selenium 循环翻页成功！
+    for i in range(1,62):  # selenium 循环翻页成功！
         driver.find_element_by_xpath('//*[@id="tbl_wrap"]/div/a[last()]').click()
         time.sleep(3)
-        # html = driver.page_source
-        # return html
+        html = driver.page_source
+        return html
 
-connection = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='123456',
-                             db='hk_stock',
-                             charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-cursor = connection.cursor()
+
 
 
 # 用遍历打开网页59次来处理
@@ -68,25 +66,10 @@ def parse_html(html):  # 正则专门有反爬虫的布局设置，不适合爬�
     selector = etree.HTML(html)
     code = selector.xpath('//*[@id="tbl_wrap"]/table/tbody/tr/th[1]/a/text()')
     name = selector.xpath('//*[@id="tbl_wrap"]/table/tbody/tr/th[2]/a/text()')
-    table = []
-    
-    # cursor.executemany('insert into hk_stock (code,name) values (%s,%s)', (str(code),str(name)))
-    # connection.commit()
-    # connection.close()
-    # print('向MySQL中添加数据成功！')
+    for i1,i2 in zip(code,name):  # 两个列表分别遍历然后组成一个新的元组，或新的列表！
+        yield (i1,i2)
 
 
-
-
-
-
-
-
-    # for item in items:
-    #     print(item)
-
-html = get_first_page()
-parse_html(html)
 
 
 
@@ -98,31 +81,40 @@ def insertDB(content):
                                  charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     try:
-        cursor.executemany('insert into hk_stock (link) values (%s)', content)
+        cursor.executemany('insert into hk_stock (code,name) values (%s,%s)', content)
         connection.commit()
         connection.close()
         print('向MySQL中添加数据成功！')
     except StopIteration :
         pass
 
-# if __name__ == '__main__':
-#         html = get_first_page()
-#         content = parse_html(html)
-#         insertDB(content)
-#         while True:
-#             html = next_page()
-#             content = parse_html(html)
-#             insertDB(content)
-        # print(offset)
 
 
 
 
+
+
+if __name__ == '__main__':
+        html = get_first_page()
+        content = parse_html(html)
+        time.sleep(3)
+        insertDB(content)
+        while True:
+            html = next_page()
+            content = parse_html(html)
+            insertDB(content)
+            print(datetime.datetime.now())
+
+
+
+
+
+# 字段设置了唯一性 unique
 
 # create table hk_stock(
 # id int not null primary key auto_increment,
-# code varchar(12),
-# name varchar(12)
+# code varchar(12) unique,
+# name varchar(50)
 # ) engine=InnoDB  charset=utf8;
 
 # 传入url太快了，考虑分成两部分完成：1.先存到数据库中或其他容器中（数据结构不行）
