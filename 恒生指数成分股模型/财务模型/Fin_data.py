@@ -8,7 +8,7 @@ import pymysql
 from lxml import etree
 from selenium import webdriver
 
-driver = webdriver.Chrome()
+
 
 
 def get_first_page(url):
@@ -38,24 +38,6 @@ def parse_stock_note(html):
 
 
 
-def Python_sel_Mysql():
-    # 使用cursor()方法获取操作游标
-    connection = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='123456', db='hk_stock',
-                                 charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-    cur = connection.cursor()
-    #sql 语句
-    for i in range(1,2481):
-        sql = 'select code from hk_stock where id = %s ' % i
-        # #执行sql语句
-        cur.execute(sql)
-        # #获取所有记录列表
-        data = cur.fetchone()
-        num = data['code']
-        url = 'http://stock.finance.sina.com.cn/hkstock/finance/' + str(num) + '.html#a4'
-        yield url
-
-
-
 def insertDB(content):
     connection = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='123456', db='hk_stock',
                                  charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
@@ -72,13 +54,22 @@ def insertDB(content):
 
 #
 if __name__ == '__main__':
-    for url_str in Python_sel_Mysql():
+    options = webdriver.ChromeOptions()
+    options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome("/usr/bin/chromedriver", chrome_options=options)
+
+
+    HK50 =["00001","00002","00003","00005","00006","00011","00012","00016","00017","00019","00027","00066","00083","00101","00151","00175","00267","00288","00386","00388","00669","00688","00700","00762","00823","00857","00883","00939","00941","01038","01044","01088","01093","01109","01113","01177","01299","01398","01928","01997","02007","02018","02313","02318","02319","02382","02388","02628","03328","03988"]
+
+    for code in HK50:
+        url_str = 'http://stock.finance.sina.com.cn/hkstock/finance/' + str(code) + '.html#a4'
+
         html = get_first_page(url_str)
         content = parse_stock_note(html)
         insertDB(content)
         print(datetime.datetime.now())
 
-a= ['6亿','6万','8亿']
+# a= ['6亿','6万','8亿']
 
 #
 # create table hk_FinData1(
@@ -97,4 +88,4 @@ a= ['6亿','6万','8亿']
 # #
 # drop table hk_FinData1;
 
-re.split(r'亿|万',a)
+# re.split(r'亿|万',a)
