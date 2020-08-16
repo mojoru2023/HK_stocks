@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6dcd9ad-5588-486e-bb65-a431f79d3754" name="Default" comment="s">
-      <change afterPath="$PROJECT_DIR$/恒生指数成分股模型/cron_hk_daily.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/恒生指数成分股模型/hk50_Daily.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/HK_stocks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HK_stocks.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_data_spider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/恒生指数成分股模型/hk50_Daily.py" beforeDir="false" afterPath="$PROJECT_DIR$/恒生指数成分股模型/hk50_Daily.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +58,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -207,25 +206,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1343" height="151" key="GridCell.Tab.0.bottom" timestamp="1588746445251">
-      <screen x="0" y="0" width="1366" height="714" />
+    <state width="1345" height="85" key="GridCell.Tab.0.bottom" timestamp="1597540815431">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1343" height="151" key="GridCell.Tab.0.bottom/0.0.1366.714@0.0.1366.714" timestamp="1588746445251" />
-    <state width="1343" height="151" key="GridCell.Tab.0.center" timestamp="1588746445250">
-      <screen x="0" y="0" width="1366" height="714" />
+    <state width="1345" height="85" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597540815431" />
+    <state width="1345" height="85" key="GridCell.Tab.0.center" timestamp="1597540815431">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1343" height="151" key="GridCell.Tab.0.center/0.0.1366.714@0.0.1366.714" timestamp="1588746445250" />
-    <state width="1343" height="151" key="GridCell.Tab.0.left" timestamp="1588746445250">
-      <screen x="0" y="0" width="1366" height="714" />
+    <state width="1345" height="85" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597540815431" />
+    <state width="1345" height="85" key="GridCell.Tab.0.left" timestamp="1597540815431">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1343" height="151" key="GridCell.Tab.0.left/0.0.1366.714@0.0.1366.714" timestamp="1588746445250" />
-    <state width="1343" height="151" key="GridCell.Tab.0.right" timestamp="1588746445251">
-      <screen x="0" y="0" width="1366" height="714" />
+    <state width="1345" height="85" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597540815431" />
+    <state width="1345" height="85" key="GridCell.Tab.0.right" timestamp="1597540815431">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1343" height="151" key="GridCell.Tab.0.right/0.0.1366.714@0.0.1366.714" timestamp="1588746445251" />
-    <state x="221" y="0" key="SettingsEditor" timestamp="1588740807959">
-      <screen x="0" y="0" width="1366" height="714" />
+    <state width="1345" height="85" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597540815431" />
+    <state x="184" y="8" key="SettingsEditor" timestamp="1597540316560">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="221" y="0" key="SettingsEditor/0.0.1366.714@0.0.1366.714" timestamp="1588740807959" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597540316560" />
   </component>
 </project>
