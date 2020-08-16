@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6dcd9ad-5588-486e-bb65-a431f79d3754" name="Default" comment="s">
-      <change beforePath="$PROJECT_DIR$/.idea/HK_stocks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HK_stocks.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/恒生指数成分股模型/hk50_Daily.py" beforeDir="false" afterPath="$PROJECT_DIR$/恒生指数成分股模型/hk50_Daily.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,25 +20,6 @@
         <option value="Python Script" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>&lt;div class=&quot;tbl_wrap&quot; id=&quot;tbl_wrap&quot; style=&quot;display: block;&quot;&gt;</find>
-      <find>除稅及股息後盈利</find>
-      <find>00001</find>
-      <find>长</find>
-      <find>000001</find>
-      <find>&lt;td class=&quot;colorize&quot;&gt;</find>
-      <find>&lt;div class=&quot;pages&quot;</find>
-      <find>长和</find>
-      <find>target=&quot;_blank&quot;&gt;</find>
-      <find>target=&quot;_blank&quot;&gt;长和&lt;/a&gt;&lt;/th&gt;&lt;td class=&quot;colorize&quot;&gt;</find>
-      <find>target=&quot;_blank&quot;&gt;(.*?)&lt;/a&gt;&lt;/th&gt;&lt;td class=&quot;colorize&quot;&gt;</find>
-      <find>安悦国际控股</find>
-      <find>000002</find>
-      <find>00002</find>
-      <find>远东酒店实业</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -206,22 +185,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1345" height="85" key="GridCell.Tab.0.bottom" timestamp="1597540815431">
+    <state width="1345" height="482" key="GridCell.Tab.0.bottom" timestamp="1597541381517">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="85" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597540815431" />
-    <state width="1345" height="85" key="GridCell.Tab.0.center" timestamp="1597540815431">
+    <state width="1345" height="482" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597541381517" />
+    <state width="1345" height="482" key="GridCell.Tab.0.center" timestamp="1597541381516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="85" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597540815431" />
-    <state width="1345" height="85" key="GridCell.Tab.0.left" timestamp="1597540815431">
+    <state width="1345" height="482" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597541381516" />
+    <state width="1345" height="482" key="GridCell.Tab.0.left" timestamp="1597541381516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="85" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597540815431" />
-    <state width="1345" height="85" key="GridCell.Tab.0.right" timestamp="1597540815431">
+    <state width="1345" height="482" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597541381516" />
+    <state width="1345" height="482" key="GridCell.Tab.0.right" timestamp="1597541381516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="85" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597540815431" />
+    <state width="1345" height="482" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597541381516" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1597540316560">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

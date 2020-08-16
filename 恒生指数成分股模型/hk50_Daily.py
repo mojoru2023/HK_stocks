@@ -69,7 +69,7 @@ class HKPool_M(object):
         html  = self.page_request()
         element = etree.HTML(html)
 
-        now_price = element.xpath('//*[@id="quote_header"]/span/text()')
+        now_price = element.xpath('//*[@id="root"]/div/main/div/div[2]/div[1]/div[2]/span[1]/text()')
         for item in now_price:
             big_list.append(item)
         return big_list
@@ -112,7 +112,7 @@ if __name__ == '__main__':
 
 
     for it in HK50:
-        url = 'http://stockpage.10jqka.com.cn/HK{0}/'.format(it[1:])
+        url = 'https://www.laohu8.com/stock/{0}'.format(it)
         print(url)
         hksp = HKPool_M(url)# 这里把请求和解析都进行了处理
         hksp.page_parse_()
